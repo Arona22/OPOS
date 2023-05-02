@@ -1,8 +1,7 @@
 .navbar-nav {
     position: relative;
     font-size: 30px;
-    align-items: center;
-    justify-content: center;
+    left: 300px;
 }
 .navbar-nav > a{
     border: 2px solid;
