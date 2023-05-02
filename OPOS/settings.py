@@ -54,7 +54,7 @@ ROOT_URLCONF = 'OPOS.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templatess'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
