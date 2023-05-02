@@ -11,19 +11,25 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg" style="background-color: #E8EC3A">
     <!-- <nav class="navbar" style="background-color: #E8EC3A"> -->
-        <div class="container-fluid">
-            <img src="{% static 'img/logo.jpg' %}" alt="" id="logo">
+            <img src="{% static 'img/logo.jpg' %}" alt="" id="logo_img">
           <!-- <a class="navbar-brand" href="{% static 'img/logo.jpg' %}">Navbar</a> -->
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
               <a class="nav-link" href="#">Menu</a>
               <a class="nav-link" href="#">Offers</a>
             </div>
-          </div>
+            <button class="order_btn">Order</button>
         </div>
+        <img src="{% static 'img/cart.jpg' %}" alt="" id="cart_img">
+        <label for="prof_drop">Profile</label>
+        <select name="profile_dropdown" id="prof_drop">
+            <option value="edit">Edit profile</option>
+            <option value="personal">Personal Info</option>
+            <option value="logout">Logout</option>
+          </select>
     </nav>
     <div class="container">
     {% block content %}
