@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'OPOS.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'opos-db',
+        'USER': 'opos-db-user',
+        'PASSWORD': '123.abc',
+        'HOST': '34.89.123.194',
+        'PORT': '5432', 
     }
 }
 
