@@ -1,4 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>MENU APP</h1>    
+{% load static %}
+    <div class="pizza-container">
+        {% for pizza in pizzas %}
+            <div class="pizza-card" style="width: 18rem;">
+                <img src="{% static '{{ pizza.image }}' %}" class="pizza-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="pizza-title">{{ pizza.name }}</h5>
+                    <p class="pizza-toppings">{{ pizza.toppings }}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

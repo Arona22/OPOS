@@ -4,7 +4,8 @@ pizzas = [
     {
         "id": 0,
         "name": "Margarita",
-        "toppings": ["tomato sauce", "cheese"],
+        "image": "img/logo.jpg",
+        "toppings": "tomato sauce and cheese",
         "price": {
             "small": 1199,
             "medium": 2199,
@@ -14,7 +15,8 @@ pizzas = [
     {
         "id": 1,
         "name": "OPOS Special",
-        "toppings": ["tomato sauce", "cheese", "pepperoni", "ham", "salami", "cream cheese", "cheddar"],
+        "image": "img/cart.jpg",
+        "toppings": "tomato sauce, cheese, pepperoni, ham, salami, cream cheese, cheddar",
         "price": {
             "small": 1199,
             "medium": 2199,
@@ -23,8 +25,9 @@ pizzas = [
     },
     {
         "id": 2,
-        "name": "Margarita",
-        "toppings": ["tomato sauce", "cheese"],
+        "name": "Pepperioni pizza",
+        "image": "img/cart.jpg",
+        "toppings": "tomato sauce, cheese, pepperoni",
         "price": {
             "small": 1199,
             "medium": 2199,
@@ -35,4 +38,4 @@ pizzas = [
 
 # Create your views here.
 def index(request):
-    return render(request, 'menu/index.html')
+    return render(request, 'menu/index.html', context={ 'pizzas': pizzas })
