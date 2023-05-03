@@ -1,0 +1,60 @@
+/* HEADER */
+.navbar {
+    width: 100%;
+}
+
+.navbar-nav {
+    /* All nav buttons */
+    gap: 30px;
+    height: 100%;
+    width: 60%;
+    position: relative;
+    left: 10%;
+}
+
+.nav-link {
+    /* nav button */
+    border-right: solid; 
+    font-size: 40px;
+}
+.order_btn {
+    /* order button */
+    background-color: orange;
+    width: 15%;
+    position: relative;
+    border-style: solid;
+    font-size: 30px;
+    padding: 10px;
+    left: 50px;
+}
+.nav-item {
+    /* profile dropdonw */
+    right: 40px;
+}
+
+#logo_img {
+    position: relative;
+    left: 30px;
+    padding: 5px;
+    width: 150px;
+}
+
+#cart_img {
+    position: relative;
+    width: 40px;
+    right: 80px;
+}
+
+/* FOOTER */
+
+/* HOME */
+
+/* MENU */
+.pizza-container {
+    display: flex;
+}
+
+img, svg {
+    vertical-align: middle;
+    width: 200;
+}

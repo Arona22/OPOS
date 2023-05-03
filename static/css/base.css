@@ -1,42 +1,87 @@
-
+/* HEADER */
 .navbar {
+    height: 90px;
     width: 100%;
 }
 
 .navbar-nav {
+    /* All nav buttons */
+    /* gap: 50px; */
     height: 100%;
     width: 60%;
     position: relative;
-    left: 10%;
+    left: 2%;
+    
 }
 
 .nav-link {
-    border-right: 2px;
-    color: black; 
-    font-size: 40px;
+    /* nav button */
+    border-right: solid; 
+    text-align: center;
+    
 }
+
+#nav_butns {
+    /* nav button text */
+    padding-right: 30px;
+    padding-left: 30px;
+    font-size: 40px;
+    
+}
+
 .order_btn {
-    background-color: orange;
+    /* order button */
+    position: relative;
+    color: black;
     width: 15%;
     position: relative;
+    right: 9%;
     border-style: solid;
+    text-decoration: none; 
+}
+
+#order_div {
+    /* order button text */
+    color: aliceblue;
+    background-color: orange;
     font-size: 30px;
+    font-weight: bold;
     padding: 10px;
-    left: 50px;
+    text-align: center;
+}
+.nav-item {
+    /* profile dropdonw */
+    right: 2%;
+    width: 20px;
 }
 
 #logo_img {
+    position: relative;
+    left: 10%;
     padding: 5px;
-    width: 110px;
+    width: 150px;
 }
+
 #cart_img {
     position: relative;
-    width: 40px;
-    right: 100px;
+    width: 50px;
+    right: 5%;
 }
 
+/* FOOTER */
 
-#prof_drop {
-    position: relative;
-    right: 10px;
+
+
+
+
+/* HOME */
+
+/* MENU */
+.pizza-container {
+    display: flex;
+}
+
+img, svg {
+    vertical-align: middle;
+    width: 200;
 }
