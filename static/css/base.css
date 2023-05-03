@@ -23,16 +23,22 @@
     font-size: 30px;
     padding: 10px;
     left: 50px;
-
-
 }
 
 #logo_img {
+
     padding: 5px;
-    width: 110px;
+    width: 150px;
 }
+
 #cart_img {
     position: relative;
     width: 40px;
-    right: 100px;
+    right: 80px;
 }
+
+/* FOOTER */
+
+/* HOME */
+
+/* MENU */
