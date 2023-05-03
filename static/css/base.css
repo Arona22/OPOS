@@ -103,9 +103,6 @@ body {
 /* MENU */
 .pizza-container {
     display: flex;
-}
-
-img, svg {
-    vertical-align: middle;
-    width: 200;
+    flex-wrap: wrap;
+    gap: 50px;
 }
