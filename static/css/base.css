@@ -4,6 +4,8 @@
 }
 
 .navbar-nav {
+    /* All nav buttons */
+    gap: 30px;
     height: 100%;
     width: 60%;
     position: relative;
@@ -11,11 +13,12 @@
 }
 
 .nav-link {
-    border-right: 2px;
-    color: black; 
+    /* nav button */
+    border-right: solid; 
     font-size: 40px;
 }
 .order_btn {
+    /* order button */
     background-color: orange;
     width: 15%;
     position: relative;
@@ -24,9 +27,14 @@
     padding: 10px;
     left: 50px;
 }
+.nav-item {
+    /* profile dropdonw */
+    right: 40px;
+}
 
 #logo_img {
-
+    position: relative;
+    left: 30px;
     padding: 5px;
     width: 150px;
 }
