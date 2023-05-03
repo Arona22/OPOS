@@ -1,4 +1,4 @@
-
+/* HEADER */
 .navbar {
     width: 100%;
 }
@@ -34,7 +34,6 @@
     width: 40px;
     right: 100px;
 }
-
 
 #prof_drop {
     position: relative;
