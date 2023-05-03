@@ -22,7 +22,7 @@
               <a class="nav-link" href="{% url 'menu-index' %}">Menu</a>
               <a class="nav-link" href="{% url 'offers-index' %}">Offers</a>
             </div>
-            <button class="order_btn">Order</button>
+            <a class="order_btn" href="{% url 'menu-index' %}" >Order</a>
         </div>
         <img src="{% static 'img/cart.jpg' %}" alt="" id="cart_img">
 

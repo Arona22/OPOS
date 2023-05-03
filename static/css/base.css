@@ -23,6 +23,8 @@
     font-size: 30px;
     padding: 10px;
     left: 50px;
+
+
 }
 
 #logo_img {
@@ -33,9 +35,4 @@
     position: relative;
     width: 40px;
     right: 100px;
-}
-
-#prof_drop {
-    position: relative;
-    right: 10px;
 }
