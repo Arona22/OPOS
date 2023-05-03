@@ -1,0 +1,42 @@
+
+.navbar {
+    width: 100%;
+}
+
+.navbar-nav {
+    height: 100%;
+    width: 60%;
+    position: relative;
+    left: 10%;
+}
+
+.nav-link {
+    border-right: 2px;
+    color: black; 
+    font-size: 40px;
+}
+.order_btn {
+    background-color: orange;
+    width: 15%;
+    position: relative;
+    border-style: solid;
+    font-size: 30px;
+    padding: 10px;
+    left: 50px;
+}
+
+#logo_img {
+    padding: 5px;
+    width: 110px;
+}
+#cart_img {
+    position: relative;
+    width: 40px;
+    right: 100px;
+}
+
+
+#prof_drop {
+    position: relative;
+    right: 10px;
+}
