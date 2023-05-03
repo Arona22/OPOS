@@ -4,7 +4,7 @@
     <div class="pizza-container">
         {% for pizza in pizzas %}
             <div class="pizza-card" style="width: 18rem;">
-                <img src="{% static '{{ pizza.image }}' %}" class="pizza-img-top" alt="">
+                <img src="{% static pizza.image %}" class="pizza-img-top" alt="">
                 <div class="card-body">
                     <h5 class="pizza-title">{{ pizza.name }}</h5>
                     <p class="pizza-toppings">{{ pizza.toppings }}</p>

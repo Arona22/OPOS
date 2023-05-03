@@ -4,7 +4,7 @@ pizzas = [
     {
         "id": 0,
         "name": "Margarita",
-        "image": "img/logo.jpg",
+        "image": "img/marga_pizza.jpg",
         "toppings": "tomato sauce and cheese",
         "price": {
             "small": 1199,
@@ -15,7 +15,7 @@ pizzas = [
     {
         "id": 1,
         "name": "OPOS Special",
-        "image": "img/cart.jpg",
+        "image": "img/opos_pizza.jpg",
         "toppings": "tomato sauce, cheese, pepperoni, ham, salami, cream cheese, cheddar",
         "price": {
             "small": 1199,
@@ -26,7 +26,7 @@ pizzas = [
     {
         "id": 2,
         "name": "Pepperioni pizza",
-        "image": "img/cart.jpg",
+        "image": "img/pep_pizza.jpg",
         "toppings": "tomato sauce, cheese, pepperoni",
         "price": {
             "small": 1199,
