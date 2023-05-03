@@ -18,14 +18,21 @@
             <img src="{% static 'img/logo.jpg' %}" alt="" id="logo_img">
         </a>
           <!-- <a class="navbar-brand" href="{% static 'img/logo.jpg' %}">Navbar</a> -->
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="{% url 'home-index' %}">Home</a>
-              <a class="nav-link" href="{% url 'menu-index' %}">Menu</a>
-              <a class="nav-link" href="{% url 'offers-index' %}">Offers</a>
-            </div>
-            <a class="order_btn" href="{% url 'menu-index' %}" >Order</a>
+        
+        <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="{% url 'home-index' %}">
+            <div id="nav_butns">Home</div>
+            </a>
+            <a class="nav-link" href="{% url 'menu-index' %}" >
+            <div id="nav_butns">Menu</div>
+            </a>
+            <a class="nav-link" href="{% url 'offers-index' %}">
+            <div id="nav_butns">Offers</div>
+            </a>
         </div>
+        <a class="order_btn" href="{% url 'menu-index' %}" >
+            <div id="order_div">Order</div>
+        </a>
         <img src="{% static 'img/cart.jpg' %}" alt="" id="cart_img">
 
         <li class="nav-item dropdown">

@@ -1,31 +1,49 @@
 /* HEADER */
 .navbar {
+    height: 80px;
     width: 100%;
 }
 
 .navbar-nav {
     /* All nav buttons */
-    gap: 30px;
+    /* gap: 50px; */
     height: 100%;
     width: 60%;
     position: relative;
-    left: 10%;
+    left: 6%;
 }
 
 .nav-link {
     /* nav button */
     border-right: solid; 
+    
+}
+
+#nav_butns {
+    
+    padding-right: 20px;
+    padding-left: 20px;
     font-size: 40px;
 }
+
 .order_btn {
     /* order button */
-    background-color: orange;
+    position: relative;
+    color: black;
     width: 15%;
     position: relative;
+    right: 9%;
     border-style: solid;
+    text-decoration: none; 
+}
+
+#order_div {
+    color: aliceblue;
+    background-color: orange;
     font-size: 30px;
+    font-weight: bold;
     padding: 10px;
-    left: 50px;
+    text-align: center;
 }
 .nav-item {
     /* profile dropdonw */
@@ -34,18 +52,22 @@
 
 #logo_img {
     position: relative;
-    left: 30px;
+    left: 10%;
     padding: 5px;
     width: 150px;
 }
 
 #cart_img {
     position: relative;
-    width: 40px;
-    right: 80px;
+    width: 50px;
+    right: 7%;
 }
 
 /* FOOTER */
+
+
+
+
 
 /* HOME */
 
