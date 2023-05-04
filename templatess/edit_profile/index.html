@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
+    {% load static %}
 
-    <h1>Edit_profile APP</h1>
+    <h1 id="edit_head_text">Edit Profile</h1>
+    <div class="edit">
+        <div class="edit_img">
+            <img src="{% static 'img/profile_pic.jpg' %}" alt="" id="profile_pic">
+            <a href="">Edit profile picture</a>
+        </div>
+        <div class="edit_text">
+            <a href="">Edit name</a>
+            <a href="">Edit mail</a>
+            <a href="">Edit phone</a>
+        </div>
+    </div>
 {% endblock %}
