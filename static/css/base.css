@@ -1,8 +1,6 @@
 body {
-    background-image: url(../img/background.jpg);
-}
-body {
     position: relative;
+    /* background-image: url(../img/background.jpg); */
 }
   
   body::after {
@@ -157,7 +155,12 @@ body {
 }
 
 .order-by {
+    background: rgba(181, 171, 171, 0.9);
     display: flex;
+    gap: 5px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
 }
 
 .pizza-container {
@@ -169,8 +172,31 @@ body {
 }
 
 .filter-box {
-    background-color: yellow;
+    background: rgba(181, 171, 171, 0.9);
     padding: 5%;
     border-radius: 20px;
     width: 285px;
+}
+
+
+/* Offers */
+
+/* Edit profile */
+
+.edit {
+    display: flex;
+}
+#edit_head_text {
+    width: 100%;
+    text-align: center;
+    font-size: 70px;
+}
+
+#edit_img {
+    display: flex;
+    flex-direction: row;
+}
+
+#edit_text {
+    display: flex;
 }
