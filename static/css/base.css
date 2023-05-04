@@ -1,11 +1,21 @@
 /* body {
     background-image: url(../img/background.jpg);
 } */
+body {
+    position: relative;
+  }
+  
+  body::after {
+    content: '';
+    display: block;
+    height: 77px; /* Set same as footer's height */
+  }
 
 /* HEADER */
 .navbar {
     height: 90px;
     width: 100%;
+    position: sticky; top: 0;
 }
 
 .navbar-nav {
@@ -76,24 +86,29 @@
 .footer {
     display: flex;
     padding: 10px;
-    position: fixed; 
+    position: absolute; 
     width: 100%; 
     height: 77px; 
-    background-color: orange;
-    left:0;
-    bottom:0
+    background-color: #E8EC3A;
+    bottom:0;
+
 }
 
 #footer_location {
+    flex: 50%;
+
     line-height: 30px;   /* within paragraph */
     margin-bottom: 0px; /* between paragraphs */
     font-size: 20px;
 }
 
 #footer_info {
+    flex: 50%;
+
     line-height: 30px;   /* within paragraph */
     margin-bottom: 0px; /* between paragraphs */
     font-size: 20px;
+    text-align: right;
 
 }
 
