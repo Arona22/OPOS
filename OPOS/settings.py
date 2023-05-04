@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'home',
     'menu',
     'offers',
+    'pizza',
+    'edit_profile',
 ]
 
 MIDDLEWARE = [
