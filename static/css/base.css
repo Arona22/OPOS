@@ -3,13 +3,13 @@ body {
 }
 body {
     position: relative;
-  }
+}
   
   body::after {
     content: '';
     display: block;
     height: 77px; /* Set same as footer's height */
-  }
+}
 
 /* HEADER */
 .navbar {
@@ -150,11 +150,22 @@ body {
 
 
 /* MENU */
+.pizza-header {
+    display: flex;
+    gap: 30%;
+    margin-top: 20px;
+}
+
+.order-by {
+    display: flex;
+}
+
 .pizza-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 50px;
-    margin-top: 80px;
+    gap: 2%;
+    row-gap: 20px;
+    margin: 10px;
 }
 
 .filter-box {
