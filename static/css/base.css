@@ -120,4 +120,12 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
+    margin-top: 80px;
+}
+
+.filter-box {
+    background-color: yellow;
+    padding: 5%;
+    border-radius: 20px;
+    width: 285px;
 }
