@@ -1,38 +1,52 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+    <div class="pizza-header">
+        <h1><b>Pizzas</b></h1>
+        <h1>Search</h1>
+    </div>
     <div class="pizza-container">
-        <div class="filter-box">
-            <h3><b>Filter by:</b></h3>
-            <h4>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Popular
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        New
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Spicy
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Veggie
-                    </label>
-                </div>
-            </h4>
+        <div class="order-and-filter">
+
+            <div class="order-by">
+                <h2>Order by:</h2>
+                <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                <label class="btn btn-outline-success" for="success-outlined">Price</label>
+                <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">  
+                <label class="btn btn-outline-danger" for="danger-outlined">Name</label>
+            </div>
+            <div class="filter-box">
+                <h3><b>Filter by:</b></h3>
+                <h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Popular
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            New
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Spicy
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Veggie
+                        </label>
+                    </div>
+                </h4>
+            </div>
         </div>
         {% for pizza in pizzas %}
-            <a href="{% url 'pizza-index' %}" class="btn btn-primary" style="width: 18rem; background-color: gray; border: gray;">
+            <a href="{% url 'pizza-index' %}" class="btn btn-primary" style="width: 18rem; background: rgba(118, 116, 116, 0.7);; border: gray;">
                 <img src="{% static pizza.image %}" class="card-img-top" alt="">
                 <div class="card-body">
                     <h5 class="pizza-title">{{ pizza.name }}</h5>

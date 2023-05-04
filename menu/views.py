@@ -36,6 +36,18 @@ pizzas = [
             "large": 3199
         },
         "type": ["spicy"]
+    },
+    {
+        "id": 3,
+        "name": "OPOS Special",
+        "image": "img/opos_pizza.jpg",
+        "toppings": "tomato sauce, cheese, pepperoni, ham, salami, cream cheese, cheddar",
+        "price": {
+            "small": 1199,
+            "medium": 2199,
+            "large": 3199
+        },
+        "type": ["popular", "spicy", "new"]
     }
 ]
 
