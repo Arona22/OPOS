@@ -2,14 +2,19 @@
 {% block content %}
 {% load static %}
     <div class="pizza-header">
-        <h1><b>Pizzas</b></h1>
-        <h1>Search</h1>
+        <h1 class="pizza-title"><b>Pizzas</b></h1>
+        <div class="input-group rounded">
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <span class="input-group-text border-0" id="search-addon">
+                <i class="fas fa-search"></i>
+            </span>
+        </div>
     </div>
     <div class="pizza-container">
         <div class="order-and-filter">
 
             <div class="order-by">
-                <h2>Order by:</h2>
+                <h3><b>Order by</b></h3>
                 <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
                 <label class="btn btn-outline-success" for="success-outlined"><b>Name</b></label>
                 <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">  

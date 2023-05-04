@@ -25,7 +25,6 @@ body::after {
     width: 60%;
     position: relative;
     left: 2%;
-    
 }
 
 .nav-link {
@@ -116,10 +115,12 @@ body::after {
 /* HOME */
 
 /* MENU */
+
 .pizza-header {
     display: flex;
-    gap: 30%;
+    gap: 50%;
     margin-top: 20px;
+    margin-left: 20px;
 }
 
 .order-by {
