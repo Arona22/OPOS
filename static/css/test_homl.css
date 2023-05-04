@@ -3,13 +3,13 @@
 } */
 body {
     position: relative;
-  }
-  
-  body::after {
+}
+
+body::after {
     content: '';
     display: block;
     height: 77px; /* Set same as footer's height */
-  }
+}
 
 /* HEADER */
 .navbar {
@@ -123,7 +123,12 @@ body {
 }
 
 .order-by {
+    background: rgba(181, 171, 171, 0.9);
     display: flex;
+    gap: 5px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
 }
 
 .pizza-container {
@@ -135,7 +140,7 @@ body {
 }
 
 .filter-box {
-    background-color: yellow;
+    background: rgba(181, 171, 171, 0.9);
     padding: 5%;
     border-radius: 20px;
     width: 285px;
