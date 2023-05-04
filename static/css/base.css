@@ -1,6 +1,6 @@
-body {
+/* body {
     background-image: url(../img/background.jpg);
-}
+} */
 
 /* HEADER */
 .navbar {
@@ -79,7 +79,7 @@ body {
     position: fixed; 
     width: 100%; 
     height: 77px; 
-    background-color: #E8EC3A;
+    background-color: orange;
     left:0;
     bottom:0
 }
