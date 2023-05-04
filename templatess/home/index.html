@@ -1,4 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>HOME APP</h1>
+    {% load static %}
+    <a href="{% url 'offers-index' %}" style="text-decoration: none; ">
+        <div class="home_box">
+            <img src="{% static 'img/homepage_img.jpg' %}" alt="homepage_img" id="homepage_img">
+            <span class="home_text">
+                <h1>2 for 1 on fridays!</h1>
+                <br>
+                <h3>You can get two pizzas for the price of one every friday</h3>
+            </span>
+        </div>
+    </a>
 {% endblock %}

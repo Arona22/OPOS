@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'home',
     'menu',
     'offers',
+    'pizza',
+    'edit_profile',
 ]
 
 MIDDLEWARE = [
@@ -123,8 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
 STATICFILES_DIRS = [
-    'static'
+    BASE_DIR / "static",
 ]
 
 # Default primary key field type

@@ -1,16 +1,63 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+    <div class="pizza-header">
+        <h1 class="pizza-title"><b>Pizzas</b></h1>
+        <div class="input-group rounded">
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <span class="input-group-text border-0" id="search-addon">
+                <i class="fas fa-search"></i>
+            </span>
+        </div>
+    </div>
     <div class="pizza-container">
+        <div class="order-and-filter">
+
+            <div class="order-by">
+                <h3><b>Order by</b></h3>
+                <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                <label class="btn btn-outline-success" for="success-outlined"><b>Name</b></label>
+                <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">  
+                <label class="btn btn-outline-success" for="danger-outlined"><b>Price</b></label>
+            </div>
+            <div class="filter-box">
+                <h3><b>Filter by:</b></h3>
+                <h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Popular
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            New
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Spicy
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Veggie
+                        </label>
+                    </div>
+                </h4>
+            </div>
+        </div>
         {% for pizza in pizzas %}
-            <div class="pizza-card" style="width: 18rem;">
-                <img src="{% static pizza.image %}" class="pizza-img-top" alt="">
+            <a href="{% url 'pizza-index' %}" class="btn btn-primary" style="width: 18rem; background: rgba(118, 116, 116, 0.7);; border: gray;">
+                <img src="{% static pizza.image %}" class="card-img-top" alt="">
                 <div class="card-body">
                     <h5 class="pizza-title">{{ pizza.name }}</h5>
                     <p class="pizza-toppings">{{ pizza.toppings }}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
-            </div>
+            </a>
         {% endfor %}
     </div>
 {% endblock %}

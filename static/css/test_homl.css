@@ -1,60 +1,152 @@
+/* body {
+    background-image: url(../img/background.jpg);
+} */
+body {
+    position: relative;
+}
+
+body::after {
+    content: '';
+    display: block;
+    height: 77px; /* Set same as footer's height */
+}
+
 /* HEADER */
 .navbar {
+    height: 90px;
     width: 100%;
+    position: sticky; top: 0;
 }
 
 .navbar-nav {
     /* All nav buttons */
-    gap: 30px;
+    /* gap: 50px; */
     height: 100%;
     width: 60%;
     position: relative;
-    left: 10%;
+    left: 2%;
 }
 
 .nav-link {
     /* nav button */
     border-right: solid; 
-    font-size: 40px;
+    text-align: center;
+    
 }
+
+#nav_butns {
+    /* nav button text */
+    padding-right: 30px;
+    padding-left: 30px;
+    font-size: 40px;
+    
+}
+
 .order_btn {
     /* order button */
-    background-color: orange;
+    position: relative;
+    color: black;
     width: 15%;
     position: relative;
+    right: 9%;
     border-style: solid;
+    text-decoration: none; 
+}
+
+#order_div {
+    /* order button text */
+    color: aliceblue;
+    background-color: orange;
     font-size: 30px;
+    font-weight: bold;
     padding: 10px;
-    left: 50px;
+    text-align: center;
 }
 .nav-item {
     /* profile dropdonw */
-    right: 40px;
+    right: 2%;
+    width: 20px;
 }
 
 #logo_img {
     position: relative;
-    left: 30px;
+    left: 10%;
     padding: 5px;
     width: 150px;
 }
 
 #cart_img {
     position: relative;
-    width: 40px;
-    right: 80px;
+    width: 50px;
+    right: 5%;
 }
 
+/* FOOTER */
+.footer {
+    display: flex;
+    padding: 10px;
+    position: absolute; 
+    width: 100%; 
+    height: 77px; 
+    background-color: #E8EC3A;
+    bottom:0;
+
+}
+
+#footer_location {
+    flex: 50%;
+
+    line-height: 30px;   /* within paragraph */
+    margin-bottom: 0px; /* between paragraphs */
+    font-size: 20px;
+}
+
+#footer_info {
+    flex: 50%;
+
+    line-height: 30px;   /* within paragraph */
+    margin-bottom: 0px; /* between paragraphs */
+    font-size: 20px;
+    text-align: right;
+
+}
 /* FOOTER */
 
 /* HOME */
 
 /* MENU */
-.pizza-container {
+
+.pizza-header {
     display: flex;
+    gap: 45%;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
-img, svg {
-    vertical-align: middle;
-    width: 200;
+.order-by {
+    background: rgba(181, 171, 171, 0.9);
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
 }
+
+.pizza-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    row-gap: 20px;
+    margin: 10px;
+}
+
+.filter-box {
+    background: rgba(181, 171, 171, 0.9);
+    padding: 5%;
+    border-radius: 20px;
+    width: 285px;
+}
+
+
+
+
