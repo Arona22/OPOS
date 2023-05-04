@@ -10,7 +10,8 @@ pizzas = [
             "small": 1199,
             "medium": 2199,
             "large": 3199
-        }
+        },
+        "type": ["popular"]
     },
     {
         "id": 1,
@@ -21,7 +22,8 @@ pizzas = [
             "small": 1199,
             "medium": 2199,
             "large": 3199
-        }
+        },
+        "type": ["popular", "spicy", "new"]
     },
     {
         "id": 2,
@@ -32,7 +34,8 @@ pizzas = [
             "small": 1199,
             "medium": 2199,
             "large": 3199
-        }
+        },
+        "type": ["spicy"]
     }
 ]
 
