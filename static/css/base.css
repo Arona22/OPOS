@@ -154,6 +154,10 @@ body {
     margin-top: 20px;
 }
 
+.card-img-top {
+    width: 200px;
+    height: 200px;
+}
 .order-by {
     background: rgba(181, 171, 171, 0.9);
     display: flex;
