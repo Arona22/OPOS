@@ -1,17 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
-
+    
     <h1 id="edit_head_text">Edit Profile</h1>
     <div class="edit">
         <div class="edit_img">
-            <img src="{% static 'img/profile_pic.jpg' %}" alt="" id="profile_pic">
-            <a href="">Edit profile picture</a>
+            <img src="{% static people.proimg %}" alt="" id="profile_pic">
+            <a href="" class="edit_butn_pro">Edit profile picture</a>
         </div>
         <div class="edit_text">
-            <a href="">Edit name</a>
-            <a href="">Edit mail</a>
-            <a href="">Edit phone</a>
+            <p class="edit_head"><b>Name</b></p>
+            <p>
+                {{ people.name }}
+                <a href="" class="edit_butns">Edit name </a>
+            </p>
+            <p class="edit_head"><b>Mail</b></p>
+            <p>
+                {{ people.mail }}
+                <a href="" class="edit_butns">Edit mail </a>
+            </p>
+            <p class="edit_head"><b>phone</b></p>
+            <p>
+                {{ people.phone }}
+                <a href="" class="edit_butns">Edit phone </a>
+            </p>
         </div>
     </div>
 {% endblock %}
