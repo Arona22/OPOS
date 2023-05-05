@@ -1,24 +1,29 @@
 from django.db import models
 
 # Create your models here.
+# from menu.models import Pizzas, Categories, Pizza_category, Ratings, PizzaImage, Sales, Toppings
 
-class Categories(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self) -> str:
         return self.name
 
 
-class Ratings(models.Model):
+class Rating(models.Model):
     name = models.CharField(max_length=255)
     rating = models.IntegerField()
 
-# from menu.models import Pizzas, Categories, Pizza_category, Ratings, PizzaImage, Sales
 
-class Pizzas(models.Model):
+class Topping(models.Model):
     name = models.CharField(max_length=255)
-    categories = models.ManyToManyField(Categories, related_name='pizzas')
-    ratings = models.ManyToManyField(Ratings, related_name='pizzas')
+
+
+class Pizza(models.Model):
+    name = models.CharField(max_length=255)
+    categories = models.ManyToManyField(Category, related_name='pizzas')
+    toppings = models.ManyToManyField(Topping, related_name='pizzas')
+    ratings = models.ManyToManyField(Rating, related_name='pizzas')
     description = models.CharField(max_length=255, blank=True)
     created_at = models.DateField()
     is_new = models.BooleanField(default=False)
@@ -31,13 +36,13 @@ class Pizzas(models.Model):
 
 
 class Pizza_category(models.Model):
-    pizza = models.ForeignKey(Pizzas, on_delete = models.CASCADE)
-    category = models.ForeignKey(Categories, on_delete = models.CASCADE)
+    pizza = models.ForeignKey(Pizza, on_delete = models.CASCADE)
+    category = models.ForeignKey(Category, on_delete = models.CASCADE)
 
 
 class PizzaImage(models.Model):
     pizza = models.ForeignKey (
-        Pizzas, 
+        Pizza, 
         on_delete = models.CASCADE, 
         default = ''
         )
@@ -49,7 +54,7 @@ class PizzaImage(models.Model):
 
 class Sales(models.Model):
     pizza = models.OneToOneField (
-        Pizzas, 
+        Pizza, 
         primary_key = True,
         on_delete=models.CASCADE        
         )

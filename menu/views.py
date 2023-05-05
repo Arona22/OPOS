@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from menu.models import Pizzas
+from django.shortcuts import render, get_object_or_404
+from menu.models import Pizza
+
 
 pizzas = [
     {
@@ -55,3 +56,10 @@ pizzas = [
 # Create your views here.
 def index(request):
     return render(request, 'menu/index.html', context={ 'pizzas': pizzas })
+
+def create_pizza(request):
+    if request.method == 'POST':
+        print(1)
+    else:
+        print(2)
+    return render(request, 'pizza')
