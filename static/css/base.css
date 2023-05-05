@@ -185,6 +185,10 @@ body {
 
 .edit {
     display: flex;
+    width: 100%;
+    background-color: aqua;
+    margin-bottom: 50px;
+    gap: 40%;
 }
 #edit_head_text {
     margin-top: 30px;
@@ -202,5 +206,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: grey;
+    border-radius: 20px;
+    width: 30%;
 
 }
