@@ -13,13 +13,14 @@ class Ratings(models.Model):
     name = models.CharField(max_length=255)
     rating = models.IntegerField()
 
+# from menu.models import Pizzas, Categories, Pizza_category, Ratings, PizzaImage, Sales
 
 class Pizzas(models.Model):
     name = models.CharField(max_length=255)
     categories = models.ManyToManyField(Categories, related_name='pizzas')
     ratings = models.ManyToManyField(Ratings, related_name='pizzas')
     description = models.CharField(max_length=255, blank=True)
-    date_added = models.DateField()
+    created_at = models.DateField()
     is_new = models.BooleanField(default=False)
     price_small = models.IntegerField(default=1199)
     price_medium = models.IntegerField(default=2199)

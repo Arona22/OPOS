@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from menu.models import Pizzas
 
 pizzas = [
     {
