@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'offers.apps.OffersConfig',
     'home',
     'pizza',
+    'show_profile',
     'edit_profile',
 ]
 
