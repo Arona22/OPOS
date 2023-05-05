@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-
-    <h1>pizza APP</h1>
+{% load static %}
+    <h1>{{ request.GET.name }}</h1>
+    <h1>{{ request.GET.image }}</h1>
+    <!-- {% for pizza in pizzas %}
+        {% if pizza == '{{ request.GET.pizza }}' %}
+            <p>virkar</p>
+        {% endif %}
+    {% endfor %} -->
 {% endblock %}
