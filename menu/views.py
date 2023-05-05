@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from menu.models import Pizza
+from .forms.pizza_form import PizzaCreateForm
 
 
 pizzas = [
@@ -61,5 +62,7 @@ def create_pizza(request):
     if request.method == 'POST':
         print(1)
     else:
-        print(2)
-    return render(request, 'pizza')
+        form = PizzaCreateForm()
+    return render(request, 'menu/create_pizza.html', {
+        'form': form
+    })
