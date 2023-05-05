@@ -181,6 +181,10 @@ body {
 
 /* Offers */
 
+.offers-header {
+    margin-top: 20px;
+}
+
 /* Edit profile */
 
 .edit {

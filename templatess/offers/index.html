@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-
-    <h1>Offers APP</h1>
+{% load static %}
+    <div class="offers-header">
+        <h1 class="offers-title"><b>Offers</b></h1>
+    </div>
+    {% for offer in Offers %}
+            <a href="{% url 'menu-index' %}?name={{ offer.name }}" class="btn btn-primary" style="width: 18rem; background: rgba(118, 116, 116, 0.7);; border: gray;">
+                <img src="{% static offer.img %}" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="offer-title">{{ offer.name }}</h5>
+                    <p class="offer-toppings">{{ offer.toppings }}</p>
+                </div>
+            </a>
+    {% endfor %}
 {% endblock %}

@@ -1,29 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
-    
     <h1 id="edit_head_text">Edit Profile</h1>
-    <div class="edit">
-        <div class="edit_img">
-            <img src="{% static people.proimg %}" alt="" id="profile_pic">
-            <a href="" class="edit_butn_pro">Edit profile picture</a>
-        </div>
-        <div class="edit_text">
-            <p class="edit_head"><b>Name</b></p>
-            <p>
-                {{ people.name }}
-                <a href="" class="edit_butns">Edit name </a>
-            </p>
-            <p class="edit_head"><b>Mail</b></p>
-            <p>
-                {{ people.mail }}
-                <a href="" class="edit_butns">Edit mail </a>
-            </p>
-            <p class="edit_head"><b>phone</b></p>
-            <p>
-                {{ people.phone }}
-                <a href="" class="edit_butns">Edit phone </a>
-            </p>
-        </div>
-    </div>
+    
+    {% for person in people %}
+        <!-- This is where we write id for person that is logged in -->
+        {% if person.id == 2 %}
+            <div class="edit">
+                <div class="edit_img">
+                    <img src="{% static person.proimg %}" alt="" id="profile_pic">
+                    <a href="" class="edit_butn_pro">Edit profile picture</a>
+                </div>
+
+                <div class="edit_text">
+                    <p class="edit_head"><b>Name</b></p>
+                    <p>
+                        {{ person.name }}
+                        <a href="" class="edit_butns">Edit name </a>
+                    </p>
+                    <p class="edit_head"><b>Mail</b></p>
+                    <p>
+                        {{ person.mail }}
+                        <a href="" class="edit_butns">Edit mail </a>
+                    </p>
+                    <p class="edit_head"><b>phone</b></p>
+                    <p>
+                        {{ person.phone }}
+                        <a href="" class="edit_butns">Edit phone </a>
+                    </p>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
 {% endblock %}
