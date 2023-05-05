@@ -17,7 +17,7 @@
             <img src="{% static 'img/logo.jpg' %}" alt="" id="logo_img">
         </a>
         
-            <div class="navbar-nav">
+          <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="{% url 'home-index' %}">
                 <div id="nav_butns">Home</div>
               </a>
@@ -27,11 +27,24 @@
               <a class="nav-link" href="{% url 'offers-index' %}">
                 <div id="nav_butns">Offers</div>
               </a>
-            </div>
-            <a class="order_btn" href="{% url 'menu-index' %}" >
-                <div id="order_div">Order</div>
-            </a>
-        <img src="{% static 'img/cart.jpg' %}" alt="" id="cart_img">
+          </div>
+          <a class="order_btn" href="{% url 'menu-index' %}" >
+              <div id="order_div">Order</div>
+          </a>
+
+        <div class="cart dropdown">
+          <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{% static 'img/cart.jpg' %}" alt="" id="cart_img">
+          </button>
+          <ul class="dropdown-menu ">
+            <li></li>
+            <li><a class="dropdown-item" href="{% url 'home-cart' %}" style="background-color: orange; border-width: thin; border: solid; ">Checkout</a></li>
+          </ul>
+      </div>
+
+
+
+
 
         <div class="nav-item dropdown">
             <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

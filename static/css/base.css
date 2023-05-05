@@ -78,11 +78,18 @@ body {
     opacity: 0.7;
   }
 
+.cart {
+    position: relative;
+    width: 50px;
+    right: 6%;
+    
+}
 #cart_img {
     position: relative;
     width: 50px;
     right: 5%;
 }
+
 
 /* FOOTER */
 .footer {
@@ -154,6 +161,10 @@ body {
     margin-top: 20px;
 }
 
+.card-img-top {
+    width: 200px;
+    height: 200px;
+}
 .order-by {
     background: rgba(181, 171, 171, 0.9);
     display: flex;
@@ -180,6 +191,10 @@ body {
 
 
 /* Offers */
+
+.offers-header {
+    margin-top: 20px;
+}
 
 /* Edit profile */
 
