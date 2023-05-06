@@ -1,9 +1,10 @@
 from django.db import models
+from datetime import date
 
 # Create your models here.
-# from menu.models import Pizzas, Categories, Pizza_category, Ratings, PizzaImage, Sales, Toppings
+# from menu.models import Pizza, Category, Pizza_category, Rating, PizzaImage, Sales, Topping
 
-class Category(models.Model):
+class Topping(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self) -> str:
@@ -15,18 +16,20 @@ class Rating(models.Model):
     rating = models.IntegerField()
 
 
-class Topping(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self) -> str:
+        return self.name
 
 class Pizza(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     categories = models.ManyToManyField(Category, related_name='pizzas')
     toppings = models.ManyToManyField(Topping, related_name='pizzas')
     ratings = models.ManyToManyField(Rating, related_name='pizzas')
-    description = models.CharField(max_length=255, blank=True)
-    created_at = models.DateField()
-    is_new = models.BooleanField(default=False)
+    description = models.CharField(max_length=255)
+    created_at = models.DateField(default=date.today())
+    is_new = models.BooleanField(default=True)
     price_small = models.IntegerField(default=1199)
     price_medium = models.IntegerField(default=2199)
     price_large = models.IntegerField(default=3199)
@@ -36,15 +39,15 @@ class Pizza(models.Model):
 
 
 class Pizza_category(models.Model):
-    pizza = models.ForeignKey(Pizza, on_delete = models.CASCADE)
-    category = models.ForeignKey(Category, on_delete = models.CASCADE)
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 
 class PizzaImage(models.Model):
-    pizza = models.ForeignKey (
+    pizza = models.ForeignKey(
         Pizza, 
-        on_delete = models.CASCADE, 
-        default = ''
+        on_delete=models.CASCADE, 
+        default=''
         )
     image = models.CharField(max_length=9999, blank=True)
 
@@ -53,9 +56,9 @@ class PizzaImage(models.Model):
 
 
 class Sales(models.Model):
-    pizza = models.OneToOneField (
+    pizza = models.OneToOneField(
         Pizza, 
-        primary_key = True,
+        primary_key=True,
         on_delete=models.CASCADE        
         )
     sales = models.IntegerField()

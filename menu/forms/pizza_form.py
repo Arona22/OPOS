@@ -1,17 +1,25 @@
 from django.forms import ModelForm, widgets
+from menu.models import Pizza, Category, Topping
 from django import forms
-from menu.models import Pizza
 
 class PizzaCreateForm(ModelForm):
-    image = forms.CharField(required=True, widget=forms.TextInput(attrs={ 'class': 'from-control' }))
-    sales = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={ 'class': 'from-control' }))
-    categories = forms.ModelMultipleChoiceField(required=True, widgets=forms.TextInput(attrs={ 'class': 'form-control' }))
-    toppings = forms.ModelMultipleChoiceField(required=True, widgets=forms.TextInput(attrs={ 'class': 'form-control' }))
-    ratings = forms.ModelMultipleChoiceField(required=True, widgets=forms.NumberInput(attrs={ 'class': 'form-control' }))
+    image = forms.CharField(
+        required=True, 
+        widget=forms.TextInput(attrs={ 'class': 'from-control' }))
+
+    categories = forms.ModelMultipleChoiceField(
+        queryset=Category.objects.all(), 
+        required=True, 
+        widget=forms.CheckboxSelectMultiple(attrs={ 'class': 'form-control' }))
+    
+    toppings = forms.ModelMultipleChoiceField(
+        queryset=Topping.objects.all(), 
+        required=True, 
+        widget=forms.CheckboxSelectMultiple(attrs={ 'class': 'form-control' }))
 
     class Meta:
         model = Pizza
-        exclude = [ 'id' ]
+        exclude = [ 'id', 'ratings' ]
         widgets = {
             'name': widgets.TextInput(attrs={ 'class': 'form-control' }),
             'description': widgets.TextInput(attrs={ 'class': 'form-control' }),
