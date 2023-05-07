@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from menu.models import Pizza
+from django.shortcuts import render, get_object_or_404, redirect
+from menu.models import Pizza, PizzaImage
 from .forms.pizza_form import PizzaCreateForm
 
 
@@ -60,7 +60,12 @@ def index(request):
 
 def create_pizza(request):
     if request.method == 'POST':
-        print(1)
+        form = PizzaCreateForm(data = request.POST)
+        if form.is_valid():
+            pizza = form.save()
+            pizza_image = PizzaImage(image=request.POST['image'], pizza = pizza)
+            pizza_image.save()
+            return redirect('pizza-index')
     else:
         form = PizzaCreateForm()
     return render(request, 'menu/create_pizza.html', {

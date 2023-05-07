@@ -38,7 +38,7 @@ class Pizza(models.Model):
         return self.name
 
 
-class Pizza_category(models.Model):
+class Pizza_categories(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
