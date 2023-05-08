@@ -3,63 +3,65 @@ from menu.models import Pizza, PizzaImage
 from .forms.pizza_form import PizzaCreateForm
 
 
-pizzas = [
-    {
-        "id": 0,
-        "name": "Margarita",
-        "image": "img/marga_pizza.jpg",
-        "toppings": "tomato sauce and cheese",
-        "price": {
-            "small": 1199,
-            "medium": 2199,
-            "large": 3199
-        },
-        "type": ["popular"]
-    },
-    {
-        "id": 1,
-        "name": "OPOS Special",
-        "image": "img/opos_pizza.jpg",
-        "toppings": "tomato sauce, cheese, pepperoni, ham, salami, cream cheese, cheddar",
-        "price": {
-            "small": 1199,
-            "medium": 2199,
-            "large": 3199
-        },
-        "type": ["popular", "spicy", "new"]
-    },
-    {
-        "id": 2,
-        "name": "Pepperioni pizza",
-        "image": "img/pep_pizza.jpg",
-        "toppings": "tomato sauce, cheese, pepperoni",
-        "price": {
-            "small": 1199,
-            "medium": 2199,
-            "large": 3199
-        },
-        "type": ["spicy"]
-    },
-    {
-        "id": 3,
-        "name": "OPOS Special",
-        "image": "img/opos_pizza.jpg",
-        "toppings": "tomato sauce, cheese, pepperoni, ham, salami, cream cheese, cheddar",
-        "price": {
-            "small": 1199,
-            "medium": 2199,
-            "large": 3199
-        },
-        "type": ["popular", "spicy", "new"]
-    }
-]
+def dumby_data():
+    pass
+    # pizzas = [
+    #     {
+    #         "id": 0,
+    #         "name": "Margarita",
+    #         "image": "img/marga_pizza.jpg",
+    #         "toppings": "tomato sauce and cheese",
+    #         "price": {
+    #             "small": 1199,
+    #             "medium": 2199,
+    #             "large": 3199
+    #         },
+    #         "type": ["popular"]
+    #     },
+    #     {
+    #         "id": 1,
+    #         "name": "OPOS Special",
+    #         "image": "img/opos_pizza.jpg",
+    #         "toppings": "tomato sauce, cheese, pepperoni, ham, salami, cream cheese, cheddar",
+    #         "price": {
+    #             "small": 1199,
+    #             "medium": 2199,
+    #             "large": 3199
+    #         },
+    #         "type": ["popular", "spicy", "new"]
+    #     },
+    #     {
+    #         "id": 2,
+    #         "name": "Pepperioni pizza",
+    #         "image": "img/pep_pizza.jpg",
+    #         "toppings": "tomato sauce, cheese, pepperoni",
+    #         "price": {
+    #             "small": 1199,
+    #             "medium": 2199,
+    #             "large": 3199
+    #         },
+    #         "type": ["spicy"]
+    #     },
+    #     {
+    #         "id": 3,
+    #         "name": "OPOS Special",
+    #         "image": "img/opos_pizza.jpg",
+    #         "toppings": "tomato sauce, cheese, pepperoni, ham, salami, cream cheese, cheddar",
+    #         "price": {
+    #             "small": 1199,
+    #             "medium": 2199,
+    #             "large": 3199
+    #         },
+    #         "type": ["popular", "spicy", "new"]
+    #     }
+    # ]
 
 # Create your views here.
 def index(request):
-    return render(request, 'menu/index.html', context={ 'pizzas': pizzas })
+    return render(request, 'menu/index.html', context={ 'pizzas': Pizza.objects.all().order_by('name') })
 
 def get_pizza_by_id(request, id):
-    return render(request, 'menu/order-pizza.html', {
+    return render(request, 'menu/order_pizza.html', {
         'pizza': get_object_or_404(Pizza, pk=id)
     })
 
