@@ -5,4 +5,5 @@ urlpatterns = [
     # http://localhost:8000/menu
     path('', views.index, name="menu-index"),
     path('create_pizza', views.create_pizza, name="create_pizza"),
+    path('<int:id>', views.get_pizza_by_id, name="order-pizza")
 ]

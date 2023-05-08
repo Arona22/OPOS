@@ -24,7 +24,7 @@
                 <h3><b>Filter by:</b></h3>
                 <h4>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="popular">
                         <label class="form-check-label" for="flexCheckDefault">
                             Popular
                         </label>
@@ -51,13 +51,14 @@
             </div>
         </div>
         {% for pizza in pizzas %}
-            <a href="{% url 'pizza-index' %}?pizza={{ pizza }}" class="btn btn-primary" style="width: 18rem; background: rgba(118, 116, 116, 0.7);; border: gray;">
+            {% include 'menu/pizza.html' with pizza=pizza %}
+            <!-- <a href="{% url 'pizza-index' %}?pizza={{ pizza }}" class="btn btn-primary" style="width: 18rem; background: rgba(118, 116, 116, 0.7);; border: gray;">
                 <img src="{% static pizza.image %}" class="card-img-top" alt="">
                 <div class="card-body">
                     <h5 class="pizza-title">{{ pizza.name }}</h5>
                     <p class="pizza-toppings">{{ pizza.toppings }}</p>
                 </div>
-            </a>
+            </a> -->
         {% endfor %}
     </div>
 {% endblock %}
