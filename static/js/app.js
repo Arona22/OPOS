@@ -8,30 +8,30 @@ let cart = [
         "name": "Margarita",
         "image": "img/marga_pizza.jpg",
         "price": 1199,
+        "quantity": 1,
     },
     {
         "id": 1,
         "name": "OPOS Special",
         "image": "img/opos_pizza.jpg",
         "price": 1199,
-    },
-    {
-        "id": 1,
-        "name": "OPOS Special",
-        "image": "img/opos_pizza.jpg",
-        "price": 1199,
+        "quantity": 2,
     },
 ]
 
 const add_cart = (pizza) => {
+    if (cart.includes(pizza)) {
+        cart
+    }
     cart.push(pizza)
 }
+
 
 
 const displayCart = () => {
     let cart_list = document.getElementById("cart_list");
     cart_list.innerHTML='';
-    let price = 0
+    let total = 0
 
 
     let allpizzaex = document.createElement("button")
@@ -60,15 +60,15 @@ const displayCart = () => {
         pizzaImg.src = "/static/" + cart[i].image;
         pizzaImg.id = "cart_img"
 
-        pizzaPrice.textContent = cart[i].price + "kr"
-
+        
         pizzaex.className = "pizzaex"
         pizzaex.onclick = () => deletepizza(cart[i].id);
-
+        
+        pizzaquant.value = cart[i].quantity
         pizzaquant.type = "number"
-        pizzaquant.value = 1
         pizzaquant.style = "width: 50px; margin-right: 200px;"
-
+        
+        pizzaPrice.textContent = cart[i].price + "kr"
 
         pizzaItem.appendChild(pizzaName);
         
@@ -80,33 +80,37 @@ const displayCart = () => {
 
         cart_list.appendChild(pizzaItem);
 
-        price += cart[i].price
+        total += cart[i].price * cart[i].quantity
     }
 
     let footer_price = document.createElement("h3");
-    footer_price.textContent = "Total: " + price + "kr"
+    footer_price.textContent = "Total: " + total + "kr"
 
     cart_list.appendChild(footer_price);
-    
-    let checkout_btn = document.createElement("a");
+    let checkout_link = document.createElement("a")
+    let checkout_btn = document.createElement("button");
     checkout_btn.textContent = "Checkout"
     checkout_btn.style = "width: 100px; background-color: orange;"
-    checkout_btn.href = "{% url 'home-cart' %}";
+
+    checkout_link.href = "/home/cart"
     
-    cart_list.appendChild(checkout_btn);
+    checkout_link.appendChild(checkout_btn);
+    cart_list.appendChild(checkout_link);
 }
 
 
 const deletepizza = (id) => {
+    //delete one pizza in cart
+    const index = cart.findIndex((obj) => obj.id === id);
+    if (index > -1) {
+        cart.splice(index, 1);
+    }
+    displayCart()
     console.log("delete ein pizza")
-    cart.forEach(el => {
-        if (el == id) {
-            cart.splice(el)
-        }
-    });
 }
 
 const deletecart = () => {
+    //delete all pizzas in cart
     cart = []
     displayCart()
     console.log("delete cart")
