@@ -22,7 +22,6 @@ urlpatterns = [
     path('home/', include('home.urls')),
     path('menu/', include('menu.urls')),
     path('offers/', include('offers.urls')),
-    path('pizza/', include('pizza.urls')),
     path('edit_profile/', include('edit_profile.urls')),
     path('admin/', admin.site.urls),
 ]
