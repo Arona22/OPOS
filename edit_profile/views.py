@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from edit_profile.models import User
-from .forms.user_form import UserCreateForm
+from .forms.user_form import UserCreateForm, UserUpdateName, UserUpdateEmail, UserUpdatePhone
 
 people = [
     {
@@ -41,3 +41,50 @@ def create_user(request):
     return render(request, 'edit_profile/create_user.html', {
         'form': form
     })
+
+def delete_user(reques, id):
+    user = get_object_or_404(User, pk=id)
+    user.delete()
+    return redirect('edit_profile-index')
+
+def update_name(request, id):
+    instance = get_object_or_404(User, pk=id)
+    if request.method == 'POST':
+        form = UserUpdateName(data=request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_profile-index')
+    else:
+        form = UserUpdateName(instance=instance)
+    return render(request, 'edit_profile/update_name.html'), {
+        'form': form,
+        'id': id
+    }
+
+def update_email(request, id):
+    instance = get_object_or_404(User, pk=id)
+    if request.method == 'POST':
+        form = UserUpdateEmail(data=request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_profile-index')
+    else:
+        form = UserUpdateEmail(instance=instance)
+    return render(request, 'edit_profile/update_email.html'), {
+        'form': form,
+        'id': id
+    }
+
+def update_phone(request, id):
+    instance = get_object_or_404(User, pk=id)
+    if request.method == 'POST':
+        form = UserUpdatePhone(data=request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_profile-index')
+    else:
+        form = UserUpdatePhone(instance=instance)
+    return render(request, 'edit_profile/update_phone.html'), {
+        'form': form,
+        'id': id
+    }
