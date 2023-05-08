@@ -306,9 +306,48 @@ body {
 
 
 /* pizza */
-.pizza-options {
+.pizza-header {
+    margin-top: 100px;
+    margin-left: 40%;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.pizza-page {
     background-color: rgba(181, 171, 171, 0.9);
+    display: flex;
+}
+
+.pizza-options {
     display: flex;
     gap: 2%;
     padding: 10px;
+}
+
+.pizza-options > .btn-outline-primary {
+    width: 100%;
+    height: 90px;
+    align-items: center;
+}
+
+.size-header {
+    margin-left: 40px;
+}
+
+.pizza-toppings-display {
+    display: flex;  
+    gap: 10px;
+    padding: 40px;
+    margin: 10px;
+    align-items: center;
+}
+
+.pizza-info {
+    flex-basis: 80%;
+}
+
+.pizza-image {
+    flex-basis: 20%;
+    width: 400px;
+    border-radius: 1000px;
 }
