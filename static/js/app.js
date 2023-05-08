@@ -15,6 +15,12 @@ let cart = [
         "image": "img/opos_pizza.jpg",
         "price": 1199,
     },
+    {
+        "id": 1,
+        "name": "OPOS Special",
+        "image": "img/opos_pizza.jpg",
+        "price": 1199,
+    },
 ]
 
 const add_cart = (pizza) => {
@@ -27,11 +33,17 @@ const displayCart = () => {
     cart_list.innerHTML='';
     let price = 0
 
+
+    let allpizzaex = document.createElement("button")
     let header = document.createElement("h2");
     header.textContent = "CART"
+    allpizzaex.className = "pizzaex"
+    allpizzaex.onclick = () => deletecart();
 
+    cart_list.appendChild(allpizzaex);
     cart_list.appendChild(header);
     
+    // all pizza boxes
     for (let i = 0; i < cart.length; i++) {
         // PIZZAS
         let pizzaItem = document.createElement("li");
@@ -40,6 +52,7 @@ const displayCart = () => {
         let pizzaImg = document.createElement("img");
         let pizzaPrice = document.createElement("h5")
         let pizzaex = document.createElement("button")
+        let pizzaquant = document.createElement("input")
 
         pizzaItem.id = "pizzaitem"
         pizzaName.textContent = cart[i].name;
@@ -49,11 +62,20 @@ const displayCart = () => {
 
         pizzaPrice.textContent = cart[i].price + "kr"
 
-        pizzaex.id = "pizzaex"
+        pizzaex.className = "pizzaex"
+        pizzaex.onclick = () => deletepizza(cart[i].id);
+
+        pizzaquant.type = "number"
+        pizzaquant.value = 1
+        pizzaquant.style = "width: 50px; margin-right: 200px;"
+
 
         pizzaItem.appendChild(pizzaName);
+        
         pizzaItem.appendChild(pizzaPrice);
         pizzaItem.appendChild(pizzaImg);
+        
+        pizzaItem.appendChild(pizzaquant);
         pizzaItem.appendChild(pizzaex);
 
         cart_list.appendChild(pizzaItem);
@@ -65,20 +87,27 @@ const displayCart = () => {
     footer_price.textContent = "Total: " + price + "kr"
 
     cart_list.appendChild(footer_price);
-
+    
+    let checkout_btn = document.createElement("a");
+    checkout_btn.textContent = "Checkout"
+    checkout_btn.style = "width: 100px; background-color: orange;"
+    checkout_btn.href = "{% url 'home-cart' %}";
+    
+    cart_list.appendChild(checkout_btn);
 }
 
 
-    let eatHeader = document.createElement("h3");
-    let eatText = document.createTextNode("Name: " + response.data[i].name + "\n");
-    eatItem.appendChild(eatHeader);
-    eatItem.appendChild(eatText);
-    eatList.appendChild(eatItem);
+const deletepizza = (id) => {
+    console.log("delete ein pizza")
+    cart.forEach(el => {
+        if (el == id) {
+            cart.splice(el)
+        }
+    });
+}
 
-    const eatButton = document.createElement("button");
-    eatButton.textContent = 'Show information'
-    eatButton.onclick = () => displayInfo(response.data[i]);
-
-    eatItem.appendChild(eatButton);
-
-    eatList.appendChild(eatItem);
+const deletecart = () => {
+    cart = []
+    displayCart()
+    console.log("delete cart")
+}
