@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from edit_profile.models import User
+from .forms.user_form import UserCreateForm
 
 people = [
     {
@@ -27,3 +29,15 @@ people = [
 # Create your views here.
 def index(request):
     return render(request, 'edit_profile/index.html', context={'people': people})
+
+def create_user(request):
+    if request.method == 'POST':
+        form = UserCreateForm(data = request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_profile-index')
+    else:
+        form = UserCreateForm()
+    return render(request, 'edit_profile/create_user.html', {
+        'form': form
+    })

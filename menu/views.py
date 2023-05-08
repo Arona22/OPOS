@@ -65,7 +65,7 @@ def create_pizza(request):
             pizza = form.save()
             pizza_image = PizzaImage(image=request.POST['image'], pizza = pizza)
             pizza_image.save()
-            return redirect('pizza-index')
+            return redirect('menu-index')
     else:
         form = PizzaCreateForm()
     return render(request, 'menu/create_pizza.html', {
