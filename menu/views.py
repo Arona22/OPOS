@@ -58,6 +58,11 @@ pizzas = [
 def index(request):
     return render(request, 'menu/index.html', context={ 'pizzas': pizzas })
 
+def get_pizza_by_id(request, id):
+    return render(request, 'menu/order-pizza.html', {
+        'pizza': get_object_or_404(Pizza, pk=id)
+    })
+
 def create_pizza(request):
     if request.method == 'POST':
         form = PizzaCreateForm(data = request.POST)
