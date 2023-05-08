@@ -1,26 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>{{ pizza.name }}</h1>
-    <h3><b>Dough:</b></h3>
-    <div class="pizza-doughs" role="group" aria-label="Basic radio toggle button group">
-        <input type="radio" class="btn-check" name="dough" id="thin" autocomplete="off">
-        <label class="btn btn-outline-primary" for="thin">Thin</label>
-      
-        <input type="radio" class="btn-check" name="dough" id="regular" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="regular">Regular</label>
-      
-        <input type="radio" class="btn-check" name="dough" id="vegan" autocomplete="off">
-        <label class="btn btn-outline-primary" for="vegan">Vegan</label>
-    </div>
-    <h3><b>Size:</b></h3>
-    <div class="pizza-sizes" role="group" aria-label="Basic radio toggle button group">
-        <input type="radio" class="btn-check" name="size" id="small" autocomplete="off">
-        <label class="btn btn-outline-primary" for="small">Small</label>
-      
-        <input type="radio" class="btn-check" name="size" id="medium" autocomplete="off">
-        <label class="btn btn-outline-primary" for="medium">Medium</label>
-      
-        <input type="radio" class="btn-check" name="size" id="large" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="large">Large</label>
+    <div class="pizza-page">
+        <h1>{{ pizza.name }}</h1>
+        <div class="pizza-options" role="group" aria-label="Basic radio toggle button group">
+            <h3><b>Dough:</b></h3>
+            <input type="radio" class="btn-check" name="dough" id="thin" autocomplete="off">
+            <label class="btn btn-outline-primary" for="thin">Thin</label>
+          
+            <input type="radio" class="btn-check" name="dough" id="regular" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="regular">Regular</label>
+          
+            <input type="radio" class="btn-check" name="dough" id="vegan" autocomplete="off">
+            <label class="btn btn-outline-primary" for="vegan">Vegan</label>
+        </div>
+        <div class="pizza-options" role="group" aria-label="Basic radio toggle button group">
+            <h3><b>Size:</b></h3>
+            <input type="radio" class="btn-check" name="size" id="small" autocomplete="off">
+            <label class="btn btn-outline-primary" for="small">Small</label>
+          
+            <input type="radio" class="btn-check" name="size" id="medium" autocomplete="off">
+            <label class="btn btn-outline-primary" for="medium">Medium</label>
+          
+            <input type="radio" class="btn-check" name="size" id="large" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="large">Large</label>
+        </div>
     </div>
     {% endblock %} 

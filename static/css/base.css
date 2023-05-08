@@ -99,9 +99,11 @@ body {
 #cart_list {
     padding: 10px;
     width: 250px;
-    border-style: solid;
-    border-color: black;
-    border-width: 2px;
+    overflow: auto;
+    max-height: 100vh;
+    background-color: rgba(185, 185, 185, 0.9);
+    overflow:scroll; 
+    height:400px;
 }
 
 #cart_img {
@@ -116,10 +118,20 @@ body {
     margin-bottom: 10px;
 }
 
-#pizzaex {
-    width: 30px;
-    height: 30px;
+.pizzaex {
+    width: 20px;
+    height: 20px;
+    margin-left: 90%;
+
 }
+
+.pizzaex:after{
+    display: inline-block;
+    content: "\00d7";
+    font-size: 30px;
+    color: red;
+    margin: -26px;
+  }
 
 /* FOOTER */
 .footer {
@@ -293,3 +305,10 @@ body {
 }
 
 
+/* pizza */
+.pizza-options {
+    background-color: rgba(181, 171, 171, 0.9);
+    display: flex;
+    gap: 2%;
+    padding: 10px;
+}
