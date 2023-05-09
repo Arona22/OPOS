@@ -74,6 +74,24 @@ def index(request):
             'firstImage': x.pizzaimage_set.first().image,
         } for x in Pizza.objects.filter(name__icontains=search_filter) ]
         return JsonResponse({ 'data': pizzas })
+    
+    elif 'filter' in request.GET:
+        filter = request.GET[ 'filter' ]
+        pizzas = [ {
+            'id': x.id,
+            'name': x.name,
+            'categories': x.categories,
+            'description': x.description,
+            'created_at': x.created_at,
+            'is_new': x.is_new,
+            'price_small': x.price_small,
+            'price_medium': x.price_medium,
+            'price_large': x.price_large,
+            'firstImage': x.pizzaimage_set.first().image,
+        } for x in Pizza.objects.filter(categories__contains=filter) ]
+        return JsonResponse({ 'data': pizzas })
+
+
     return render(request, 'menu/index.html', context={ 'pizzas': Pizza.objects.all().order_by('name') })
 
 def get_pizza_by_id(request, id):
