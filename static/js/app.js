@@ -1,34 +1,46 @@
-const filtering = () => {
-    const checkbox = document.getElementById("flexCheckDefault")
+// const filtering = () => {
+//     const checkbox = document.getElementById("flexCheckDefault")
+// }
+
+// var cart = []
+// localStorage.clear();
+let cart = []
+
+const get_cart = () => {
+    cart = JSON.parse(localStorage.getItem('myArray'));
+    if (cart === null){
+        console.log("empty cart")
+        cart = []
+    }else {
+        console.log(cart)
+    }
 }
 
-let cart = [
-    {
-        "id": 0,
-        "name": "Margarita",
-        "image": "img/marga_pizza.jpg",
-        "price": 1199,
-        "quantity": 1,
-    },
-    {
-        "id": 1,
-        "name": "OPOS Special",
-        "image": "img/opos_pizza.jpg",
-        "price": 1199,
-        "quantity": 2,
-    },
-]
-
-const add_cart = (pizza) => {
-    if (cart.includes(pizza)) {
-        cart
+const add_cart = (id, name, img) => {
+    const sizeGroup = document.querySelector('.pizza-size');
+    const selectedSize = sizeGroup.querySelector('input[name="size"]:checked');
+    const selectedValue = selectedSize.id;
+    
+    let obj = {
+        "id": id,
+        "name": name,
+        "image": img,
+        "price": selectedValue,
+        "quantity": 1
     }
-    cart.push(pizza)
+    // if (cart.includes(pizza)) {
+        //     let found_pizza = cart.find(({name}) => name === pizza.name);
+        //     found_pizza.quantity += 1
+        // }
+
+    cart.push(obj);
+    localStorage.setItem('myArray', JSON.stringify(cart));
 }
 
 
 
 const displayCart = () => {
+    get_cart()
     let cart_list = document.getElementById("cart_list");
     cart_list.innerHTML='';
     let total = 0
@@ -64,9 +76,10 @@ const displayCart = () => {
         pizzaex.className = "pizzaex"
         pizzaex.onclick = () => deletepizza(cart[i].id);
         
+        pizzaquant.id = "quant"
         pizzaquant.value = cart[i].quantity
         pizzaquant.type = "number"
-        pizzaquant.style = "width: 50px; margin-right: 200px;"
+        pizzaquant.style = "width: 50px; margin-right: 100px; margin-left: 5px; margin-top: 5px;"
         
         pizzaPrice.textContent = cart[i].price + "kr"
 
@@ -105,13 +118,16 @@ const deletepizza = (id) => {
     if (index > -1) {
         cart.splice(index, 1);
     }
+    localStorage.setItem('myArray', JSON.stringify(cart));
     displayCart()
     console.log("delete ein pizza")
 }
 
 const deletecart = () => {
     //delete all pizzas in cart
-    cart = []
+    localStorage.setItem('myArray', JSON.stringify([]));
     displayCart()
     console.log("delete cart")
 }
+
+
