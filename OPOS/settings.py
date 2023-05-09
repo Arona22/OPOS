@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home',
     'show_profile',
     'edit_profile',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
