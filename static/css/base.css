@@ -410,6 +410,8 @@ body {
 .add-to-cart {
     display: inline-block;
     padding: 10px 20px;
+    margin-left: 40%;
+    margin-bottom: 20px;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
@@ -419,6 +421,8 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 400px;
+    height: 100px;
   }
   
   .add-to-cart:hover {
