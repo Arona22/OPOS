@@ -65,7 +65,7 @@ def index(request):
         pizzas = [ {
             'id': x.id,
             'name': x.name,
-            'descripion': x.description,
+            'description': x.description,
             'created_at': x.created_at,
             'is_new': x.is_new,
             'price_small': x.price_small,
