@@ -368,13 +368,6 @@ body {
 }
 
 
-
-
-
-
-
-
-
 .pizza-page {
     background-color: rgba(181, 171, 171, 0.9);
     display: flex;
@@ -393,7 +386,7 @@ body {
 }
 
 .size-header {
-    margin-left: 40px;
+    margin-left: 41px;
 }
 
 .pizza-toppings-display {
@@ -413,3 +406,25 @@ body {
     width: 400px;
     border-radius: 1000px;
 }
+
+.add-to-cart {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-to-cart:hover {
+    background-color: #218838;
+  }
+  
+  .add-to-cart:active {
+    background-color: #1e7e34;
+  }
