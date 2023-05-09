@@ -6,9 +6,11 @@
         <div class="card-body">
             <h5 class="pizza-title">{{ pizza.name }}</h5>
             <p class="pizza-description">{{ pizza.description }}</p>
-            {% for category in pizza.pizza_category_set.all %}
-                <p>{{ category.category }}</p>
-            {% endfor %}
+            <div class="pizza-categories">
+                {% for category in pizza.pizza_category_set.all %}
+                    <p>{{ category.category }}</p>
+                {% endfor %}
+            </div>
         </div>
     </a>
 </div>

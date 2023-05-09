@@ -333,6 +333,11 @@ body {
     border-radius: 5px;
 }
 
+
+
+
+
+
 .search-bar-container {
     background-color: #fff;
     float: right;
@@ -401,6 +406,10 @@ body {
     padding: 40px;
     margin: 10px;
     align-items: center;
+}
+
+.pizza-categories {
+    display: inline-block;
 }
 
 .pizza-info {
