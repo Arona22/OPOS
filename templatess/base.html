@@ -48,9 +48,16 @@
               Profile
             </button>
             <ul class="dropdown-menu ">
-              <li><a class="dropdown-item" href="{% url 'edit_profile-index' %}">Edit profile</a></li>
-              <li><a class="dropdown-item" href="#">Personal info</a></li>
-              <li><a class="dropdown-item" href="#">logout</a></li>
+              {% if user.is_authenticated %}
+                <li><a class="dropdown-item" href="{% url 'edit_profile-index' %}">Edit profile</a></li>
+                <li><a class="dropdown-item" href="#">Personal info</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              {% else %}
+                <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
+
+
+              {% endif %}
             </ul>
         </div>
     </nav>
