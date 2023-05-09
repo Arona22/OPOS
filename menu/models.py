@@ -42,6 +42,14 @@ class Pizza_category(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
+class Pizza_topping(models.Model):
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
+    topping = models.ForeignKey(Topping, on_delete=models.CASCADE)
+
+class Pizza_rating(models.Model):
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
+    rating = models.ForeignKey(Rating, on_delete=models.CASCADE)
+
 
 class PizzaImage(models.Model):
     pizza = models.ForeignKey(
