@@ -144,6 +144,7 @@ const checkout_cart = () => {
 
         //make box
         let checkItem = document.createElement("div");
+        checkItem.style = "border-bottom: 1px solid; padding-bottom: 10px;"
         checkItem.className = "form-group"
 
 
@@ -156,7 +157,7 @@ const checkout_cart = () => {
         let checkimg = document.createElement("img");
         checkimgdiv.className = "img-responsive"
         checkimg.src =  "/static/" + cart[i].image;
-        checkimg.style = "width: 100px;"
+        checkimg.style = "width: 100px; height: 100px;"
         checkimgdiv.appendChild(checkimg)
 
 
@@ -169,6 +170,7 @@ const checkout_cart = () => {
         let checkprodname = document.createElement("div");
         checkprodname.className = "col-xs-12"
         checkprodname.textContent = cart[i].name
+        checkprodname.style = "font-size: 20px;"
         checkproddiv.appendChild(checkprodname)
 
         //make product quantity
@@ -183,7 +185,7 @@ const checkout_cart = () => {
         checkItem.appendChild(checkpricediv)
 
         //make price
-        let checkprice = document.createElement("h6");
+        let checkprice = document.createElement("h4");
         checkprice.textContent = (cart[i].price * cart[i].quantity) + "kr"
         checkpricediv.appendChild(checkprice)
 
