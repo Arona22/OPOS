@@ -30,11 +30,13 @@
             <h4 class="pizza-toppings">{{ pizza.description }}</h4>
         </div>
         <div>
-            <a href="{% url 'home-index' %}" class="add-to-cart" onclick="add_cart(
+            <a href="{% url 'menu-index' %}">
+                <button class="add-to-cart" onclick="add_cart(
                 '{{ pizza.id }}',
                 '{{ pizza.name }}',
                 '{{ pizza.pizzaimage_set.first }}'
-            )"><h2><b>Add to Cart</b></h2></a>
+                )"><h2><b>Add to Cart</b></h2></button>
+            </a>
         </div>
     </div>
     <img class="pizza-image" src="/static/{{ pizza.pizzaimage_set.first }}" alt="">
