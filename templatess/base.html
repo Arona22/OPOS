@@ -50,8 +50,8 @@
             <ul class="dropdown-menu ">
               {% if user.is_authenticated %}
                 <li><a class="dropdown-item" href="{% url 'edit_profile-index' %}">Edit profile</a></li>
-                <li><a class="dropdown-item" href="#">Personal info</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
               {% else %}
                 <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
                 <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
