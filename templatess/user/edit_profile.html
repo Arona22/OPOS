@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h1>Profile</h1>
+    <h1>Profile details</h1>
     <form class="form form-horizontal" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" class="btn bth-primary pull-right" style="clear:both; margin:10px 0" value="Update">
+        <input type="submit" class="btn bth-primary pull-right" style="clear:both; margin:10px 0" value="Save">
     </form>
 
 {% endblock %}

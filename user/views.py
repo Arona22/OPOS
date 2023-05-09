@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from user.models import Profile
-from user.forms.profile_form import ProfileForm
+from user.forms.profile_form import EditProfileForm
 
 # Create your views here.
 def register(request):
@@ -15,15 +15,15 @@ def register(request):
     })
 
 
-def profile(request):
+def edit_profile(request):
     profile = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
-        form = ProfileForm(instance=profile, data=request.POST)
+        form = EditProfileForm(instance=profile, data=request.POST)
         if form.is_valid():
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
-            return redirect('profile')
-    return render(request, 'user/profile.html', {
-        'form': ProfileForm(instance=profile)
+            return redirect('edit_profile')
+    return render(request, 'user/edit_profile.html', {
+        'form': EditProfileForm(instance=profile)
     })

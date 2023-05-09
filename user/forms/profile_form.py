@@ -1,7 +1,7 @@
 from django.forms import ModelForm, widgets
 from user.models import Profile
 
-class ProfileForm(ModelForm):
+class EditProfileForm(ModelForm):
     class Meta:
         model = Profile
         exclude = [ 'id', 'user' ]
