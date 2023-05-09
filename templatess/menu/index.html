@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-    <div class="pizza-header">
-        <h1 class="pizza-title"><b>Pizzas</b></h1>
-        <input type="text" placeholder="Search..">
-    </div>
+    <header class="pizza-header">
+        <h1 class="pizza-header-title"><b>Pizzas</b></h1>
+        <div class="search-bar-container">
+            <input type="search" class="form-control", id="menu-search-box" placeholder="Search by name or ingredients">
+            <!-- <input class="menu-search-bar" type="text" placeholder="Search by name or ingredients"> -->
+            <!-- <img class="search-bar-maginifying-glass" src="/static/public/photos/Screenshot 2023-05-08 225625.png" alt=""> -->
+        </div>
+    </header>
+
     <div class="pizza-container">
         <div class="order-and-filter">
 
@@ -45,8 +50,11 @@
                 </h4>
             </div>
         </div>
-        {% for pizza in pizzas %}
-            {% include 'menu/pizza.html' with pizza=pizza %}
-        {% endfor %}
+        <div class="pizza-container" id="pizzas">
+            {% for pizza in pizzas %}
+                {% include 'menu/pizza.html' with pizza=pizza %}
+            {% endfor %}
+        </div>
+
     </div>
 {% endblock %}
