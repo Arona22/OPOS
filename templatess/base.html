@@ -52,7 +52,7 @@
             </button>
             <ul class="dropdown-menu ">
               {% if user.is_authenticated %}
-                <li><a class="dropdown-item" href="{% url 'edit_profile-index' %}">Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'show_profile' %}">Profile</a></li>
                 <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Edit profile</a></li>
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
               {% else %}

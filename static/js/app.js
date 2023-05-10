@@ -261,7 +261,6 @@ const checkout_cart = () => {
     checktotal.textContent = checkout_total_final + "kr"
     checktotal.style = "padding-right: 15px;"
     checktotalform.appendChild(checktotal);
-
-
 }
+
 

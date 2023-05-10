@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    <h1 id="edit_head_text">Profile</h1>
+    
+    <div class="edit">
+        <div class="edit_img">
+            <img src="{% static user.profile.profile_image %}" alt="" id="profile_pic">
+        </div>
+
+        <div class="edit_text">
+            <p class="edit_head"><b>Name</b></p>
+            <p>
+                {{ user.profile.name }}
+            </p>
+            <p class="edit_head"><b>Mail</b></p>
+            <p>
+                {{ user.profile.email }}
+            </p>
+            <p class="edit_head"><b>phone</b></p>
+            <p>
+                {{ user.profile.phone }}
+            </p>
+        </div>
+    </div>
+{% endblock %}
