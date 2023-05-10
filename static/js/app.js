@@ -149,7 +149,7 @@ const displayCart = () => {
     checkout_btn.textContent = "Checkout"
     checkout_btn.style = "width: 100px; background-color: orange;"
 
-    checkout_link.href = "/home/cart"
+    checkout_link.href = "/checkout/contact_info"
     
     checkout_link.appendChild(checkout_btn);
     cart_list.appendChild(checkout_link);
