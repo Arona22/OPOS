@@ -35,7 +35,7 @@ def index(request):
             'price_medium': x.price_medium,
             'price_large': x.price_large,
             'firstImage': x.pizzaimage_set.first().image,
-            'categories': list(x.pizza_category_set.all().values())
+            'categories': [category['category_id'] for category in x.pizza_category_set.values()]
         } for x in Pizza.objects.filter(pizza_category__in=[filter]) ]
         return JsonResponse({ 'data': pizzas })
 

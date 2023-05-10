@@ -1,9 +1,18 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from user.models import Profile
 from user.forms.profile_form import EditProfileForm
 
 # Create your views here.
+
+
+def get_user(request):
+    profile = Profile.objects.filter(user=request.user).first()
+    return render(request, 'user/profile_details.html', {
+        'user': profile
+    })
+
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
