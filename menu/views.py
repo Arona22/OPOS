@@ -35,10 +35,17 @@ def index(request):
             'price_medium': x.price_medium,
             'price_large': x.price_large,
             'firstImage': x.pizzaimage_set.first().image,
-            'categories': [category['category_id'] for category in x.pizza_category_set.values()]
-        } for x in Pizza.objects.filter(pizza_category__in=[filter]) ]
-        return JsonResponse({ 'data': pizzas })
+            'categories': [category.category.name for category in x.pizza_category_set.all()],
+        } for x in Pizza.objects.all()]
+        returned_pizzas = []
+        for i in range(len(pizzas)):
+            if filter in pizzas[i]['categories']:
+                returned_pizzas.append(pizzas[i])
 
+        return JsonResponse({ 'data': returned_pizzas })
+    
+    if 'order_by_price' in request.GET:
+        return render(request, 'menu/index.html', context={ 'pizzas': Pizza.objects.all().order_by('id') })
 
     return render(request, 'menu/index.html', context={ 'pizzas': Pizza.objects.all().order_by('name') })
 
