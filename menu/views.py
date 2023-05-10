@@ -75,8 +75,8 @@ def index(request):
         } for x in Pizza.objects.filter(name__icontains=search_filter) ]
         return JsonResponse({ 'data': pizzas })
     
-    elif 'filter' in request.GET:
-        filter = request.GET[ 'filter' ]
+    elif 'category_filter' in request.GET:
+        filter = request.GET[ 'category_filter' ]
         pizzas = [ {
             'id': x.id,
             'name': x.name,
