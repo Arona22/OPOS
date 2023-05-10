@@ -62,7 +62,7 @@ $(document).ready(function() {
                                 </a>
                             </div>`
                 })
-                $('#category-select').html(newHtml.join(''));
+                $('#pizzas').html(newHtml.join(''));
             },
             error: function(xhr, status, error) {
                 console.error(error);
