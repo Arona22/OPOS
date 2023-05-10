@@ -7,3 +7,6 @@ def index(request):
 
 def cart(request):
     return render(request, 'home/cart.html')
+
+def thank(request):
+    return render(request, 'home/thank.html')

@@ -1,11 +1,9 @@
-// const filtering = () => {
-//     const checkbox = document.getElementById("flexCheckDefault")
-// }
 
 let cart = []
 
 const get_cart = () => {
     cart = JSON.parse(localStorage.getItem('myArray'));
+    
     if (cart === null){
         console.log("empty cart")
         cart = []
@@ -13,6 +11,23 @@ const get_cart = () => {
         console.log(cart)
     }
 }
+
+const add_offer_cart = (name, img) => {
+
+    //2for1
+    let obj = {
+        "name": name,
+        "image": img
+    }
+
+    cart.push(obj);
+    if (cart.length > 2){
+        cart[cart.length - 2].price = 0
+    }
+    localStorage.setItem('myArray', JSON.stringify(cart));
+    console.log("offer in cart: " + name + img)
+}
+
 
 const add_cart = (id, name, img) => {
     const sizeGroup = document.querySelector('.pizza-size');
@@ -60,42 +75,69 @@ const displayCart = () => {
     // all pizza boxes
     for (let i = 0; i < cart.length; i++) {
         // PIZZAS
-        let pizzaItem = document.createElement("li");
+        if (cart[i].name == "2for1" || cart[i].name == "10%"){
+            //display offer in cart
+            let pizzaItem = document.createElement("li");
 
-        let pizzaName = document.createElement("h4");
-        let pizzaImg = document.createElement("img");
-        let pizzaPrice = document.createElement("h5")
-        let pizzaex = document.createElement("button")
-        let pizzaquant = document.createElement("input")
+            let pizzaName = document.createElement("h4");
+            let pizzaImg = document.createElement("img");
+            let pizzaex = document.createElement("button")
 
-        pizzaItem.id = "pizzaitem"
-        pizzaName.textContent = cart[i].name;
+            pizzaItem.id = "pizzaitem"
+            pizzaName.textContent = cart[i].name;
 
-        pizzaImg.src = "/static/" + cart[i].image;
-        pizzaImg.id = "cart_img"
+            pizzaImg.src = "/static/" + cart[i].image;
+            pizzaImg.id = "cart_img"
 
-        
-        pizzaex.className = "pizzaex"
-        pizzaex.onclick = () => deletepizza(cart[i].id);
-        
-        pizzaquant.id = "quant"
-        pizzaquant.value = cart[i].quantity
-        pizzaquant.type = "number"
-        pizzaquant.style = "width: 50px; margin-right: 100px; margin-left: 5px; margin-top: 5px;"
-        
-        pizzaPrice.textContent = cart[i].price + "kr"
+            
+            pizzaex.className = "pizzaex"
+            pizzaex.onclick = () => deletepizza(cart[i].id);
 
-        pizzaItem.appendChild(pizzaName);
-        
-        pizzaItem.appendChild(pizzaPrice);
-        pizzaItem.appendChild(pizzaImg);
-        
-        pizzaItem.appendChild(pizzaquant);
-        pizzaItem.appendChild(pizzaex);
+            pizzaItem.appendChild(pizzaName);
+            pizzaItem.appendChild(pizzaImg);
+            pizzaItem.appendChild(pizzaex);
 
-        cart_list.appendChild(pizzaItem);
+            cart_list.appendChild(pizzaItem);
+            
+        }else{
+            //display pizza in cart
+            let pizzaItem = document.createElement("li");
 
-        total += cart[i].price * cart[i].quantity
+            let pizzaName = document.createElement("h4");
+            let pizzaImg = document.createElement("img");
+            let pizzaPrice = document.createElement("h5")
+            let pizzaex = document.createElement("button")
+            let pizzaquant = document.createElement("input")
+
+            pizzaItem.id = "pizzaitem"
+            pizzaName.textContent = cart[i].name;
+
+            pizzaImg.src = "/static/" + cart[i].image;
+            pizzaImg.id = "cart_img"
+
+            
+            pizzaex.className = "pizzaex"
+            pizzaex.onclick = () => deletepizza(cart[i].id);
+            
+            pizzaquant.id = "quant"
+            pizzaquant.value = cart[i].quantity
+            pizzaquant.type = "number"
+            pizzaquant.style = "width: 50px; margin-right: 100px; margin-left: 5px; margin-top: 5px;"
+            
+            pizzaPrice.textContent = cart[i].price + "kr"
+
+            pizzaItem.appendChild(pizzaName);
+            
+            pizzaItem.appendChild(pizzaPrice);
+            pizzaItem.appendChild(pizzaImg);
+            
+            pizzaItem.appendChild(pizzaquant);
+            pizzaItem.appendChild(pizzaex);
+
+            cart_list.appendChild(pizzaItem);
+
+            total += cart[i].price * cart[i].quantity
+        }
     }
 
     let footer_price = document.createElement("h3");
@@ -144,7 +186,7 @@ const checkout_cart = () => {
 
         //make box
         let checkItem = document.createElement("div");
-        checkItem.style = "border-bottom: 1px solid; padding-bottom: 10px;"
+        checkItem.style = "border-bottom: 1px solid; padding-bottom: 10px; padding-left: 10px;"
         checkItem.className = "form-group"
 
 
@@ -196,24 +238,30 @@ const checkout_cart = () => {
 
     }
     //make spacer
-    let checkspace = document.createElement("div");
-    checkspace.className = "form-group"
-    panel.appendChild(checkspace);
 
     //make order total form
     let checktotalform = document.createElement("div");
-    checkspace.className = "form-group"
+    checktotalform.className = "form-group"
+    checktotalform.style = "display: flex;"
     panel.appendChild(checktotalform);
 
     //make order total div
     let checktotaldiv = document.createElement("div");
-    checkspace.className = "col-xs-12"
+    checktotaldiv.className = "col-xs-12"
+    checktotaldiv.textContent = "Order tortal: "
+    checktotaldiv.style = "font-size: 25px; padding-top: 18px;"
     checktotalform.appendChild(checktotaldiv);
 
     //make order total
-    let checktotal = document.createElement("strong");
-    checktotal.textContent = "FORLOOPA HER"
-    checktotaldiv.appendChild(checktotal);
+    let checkout_total_final = 0
+    for (let i = 0; i < cart.length; i++) {
+        checkout_total_final += cart[i].price * cart[i].quantity
+    }
+    let checktotal = document.createElement("h3");
+    checktotal.textContent = checkout_total_final + "kr"
+    checktotal.style = "padding-right: 15px;"
+    checktotalform.appendChild(checktotal);
+
 
 }
 

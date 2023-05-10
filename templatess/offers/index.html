@@ -6,7 +6,7 @@
     </div>
     <div class="pizza-container">
         {% for offer in offers %}
-            <a href="{% url 'menu-index' %}?name={{ offer.name }}" class="btn btn-primary" style="width: 18rem; background: rgba(118, 116, 116, 0.7);; border: gray;">
+            <a href="{% url 'menu-index' %}?name={{ offer.name }}" onclick="add_offer_cart('{{ offer.name }}', '{{ offer.img }}')" class="btn btn-primary" style="width: 18rem; background: rgba(118, 116, 116, 0.7);; border: gray;">
                 <img src="{% static offer.img %}" class="card-img-top" alt="">
                 <div class="card-body">
                     <h5 class="pizza-title">{{ offer.name }}</h5>

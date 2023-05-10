@@ -230,6 +230,12 @@ body {
     width: 285px;
 }
 
+.btn-group-ver {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 
 /* Offers */
 
@@ -322,7 +328,7 @@ body {
 
 
 /* pizza */
-.pizza-header {
+/* .pizza-header {
     background-color: greenyellow;
     margin-top: 100px;
     margin-bottom: 100px;
@@ -337,7 +343,7 @@ body {
 .pizza-title {
     background-color: rgb(255, 137, 90);
     border-radius: 5px;
-}
+} */
 
 
 

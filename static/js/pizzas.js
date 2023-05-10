@@ -40,10 +40,13 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    $('#flexCheckDefault').on('change', function(e) {
+    $('#category-select').on('change', function(e) {
         e.preventDefault();
-        var filter = $('#flexCheckDefault').next('label').text();
-        
+        var categorySelect = document.querySelector('#category-select');
+        var selectedRadio = categorySelect.querySelector('input[type=radio]:checked');
+        var selectedLabel = categorySelect.querySelector('label[for="' + selectedRadio.id + '"]');
+        var filter = selectedLabel.textContent;
+                
         $.ajax({
             'url': '/menu?category_filter=' + filter,
             'type': 'GET',
@@ -59,7 +62,7 @@ $(document).ready(function() {
                                 </a>
                             </div>`
                 })
-                $('#flexCheckDefault').html(newHtml.join(''));
+                $('#pizzas').html(newHtml.join(''));
             },
             error: function(xhr, status, error) {
                 console.error(error);

@@ -22,32 +22,16 @@
             </div>
             <div class="filter-box">
                 <h3><b>Filter by:</b></h3>
-                <h4>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="popular">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Popular
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            New
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Spicy
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Veggie
-                        </label>
-                    </div>
-                </h4>
+                <div class="btn-group-ver" role="group" aria-label="Vertical radio toggle button group" id="category-select">
+                    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+                    <label class="btn btn-outline-danger" for="vbtn-radio1">All</label>
+                    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+                    <label class="btn btn-outline-danger" for="vbtn-radio2">Carnivorian</label>
+                    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
+                    <label class="btn btn-outline-danger" for="vbtn-radio3">Vegeterian</label>
+                    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio4" autocomplete="off">
+                    <label class="btn btn-outline-danger" for="vbtn-radio4">Keto</label>
+                </div>
             </div>
         </div>
         {% for pizza in pizzas %}
