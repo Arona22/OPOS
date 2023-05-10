@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
+
+    <img src="{% static 'img/pizza_background.jpg' %}" alt="" style="position: absolute; z-index: -10; width: 100%;">
+<div class="container">
     <a href="{% url 'offers-index' %}" style="text-decoration: none; ">
         <div class="home_box">
             <img src="{% static 'img/homepage_img.jpg' %}" alt="homepage_img" id="homepage_img">
@@ -11,4 +14,5 @@
             </span>
         </div>
     </a>
+</div>
 {% endblock %}

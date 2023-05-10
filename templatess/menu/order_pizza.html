@@ -1,41 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="pizza-header"><b>{{ pizza.name }}</b></h1>
-<div class="pizza-page">
-    <div class="pizza-info">
-        <div class="pizza-dough" role="group" aria-label="Basic radio toggle button group">
-            <h2><b>Dough:</b></h2>
-            <input type="radio" class="btn-check" name="dough" id="thin" autocomplete="off">
-            <label class="btn btn-outline-primary" for="thin"><h1><b>Thin</b></h1></label>
-            
-            <input type="radio" class="btn-check" name="dough" id="regular" autocomplete="off" checked>
-            <label class="btn btn-outline-primary" for="regular"><h1><b>Regular</b></h1></label>
-            
-            <input type="radio" class="btn-check" name="dough" id="vegan" autocomplete="off">
-            <label class="btn btn-outline-primary" for="vegan"><h1><b>Vegan</b></h1></label>
+<div class="container">
+    <h1 class="pizza-header"><b>{{ pizza.name }}</b></h1>
+    <div class="pizza-page">
+        <div class="pizza-info">
+            <div class="pizza-dough" role="group" aria-label="Basic radio toggle button group">
+                <h2><b>Dough:</b></h2>
+                <input type="radio" class="btn-check" name="dough" id="thin" autocomplete="off">
+                <label class="btn btn-outline-primary" for="thin"><h1><b>Thin</b></h1></label>
+                
+                <input type="radio" class="btn-check" name="dough" id="regular" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="regular"><h1><b>Regular</b></h1></label>
+                
+                <input type="radio" class="btn-check" name="dough" id="vegan" autocomplete="off">
+                <label class="btn btn-outline-primary" for="vegan"><h1><b>Vegan</b></h1></label>
+            </div>
+            <div class="pizza-size" role="group" aria-label="Basic radio toggle button group">
+                <h2 class="Size-header"><b>Size:</b></h2>
+                <input type="radio" class="btn-check" name="size" id="{{ pizza.price_small }}" autocomplete="off">
+                <label class="btn btn-outline-primary" for="{{ pizza.price_small }}"><h1><b>Small</b></h1><b><p style="color: black;">{{ pizza.price_small }}kr</p></b></label>
+                
+                <input type="radio" class="btn-check" name="size" id="{{ pizza.price_medium }}" autocomplete="off">
+                <label class="btn btn-outline-primary" for="{{ pizza.price_medium }}"><h1><b>Medium</b></h1><b><p style="color: black;">{{ pizza.price_medium }}kr</p></b></label>
+                
+                <input type="radio" class="btn-check" name="size" id="{{ pizza.price_large }}" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="{{ pizza.price_large }}"><h1><b>Large</b></h1><b><p style="color: black;">{{ pizza.price_large }}kr</p></b></label>
+            </div>
+            <div class="pizza-toppings-display">
+                <h2 class="pizza-toppings-header">Toppings:</h2>
+                <h4 class="pizza-toppings">{{ pizza.description }}</h4>
+            </div>
+            <a href="{% url 'menu-index' %}" class="add-to-cart" onclick="add_cart(
+                '{{ pizza.id }}',
+                '{{ pizza.name }}',
+                '{{ pizza.pizzaimage_set.first }}'
+            )"><h2><b>Add to Cart</b></h2>
+            </a>
         </div>
-        <div class="pizza-size" role="group" aria-label="Basic radio toggle button group">
-            <h2 class="Size-header"><b>Size:</b></h2>
-            <input type="radio" class="btn-check" name="size" id="{{ pizza.price_small }}" autocomplete="off">
-            <label class="btn btn-outline-primary" for="{{ pizza.price_small }}"><h1><b>Small</b></h1><b><p style="color: black;">{{ pizza.price_small }}kr</p></b></label>
-            
-            <input type="radio" class="btn-check" name="size" id="{{ pizza.price_medium }}" autocomplete="off">
-            <label class="btn btn-outline-primary" for="{{ pizza.price_medium }}"><h1><b>Medium</b></h1><b><p style="color: black;">{{ pizza.price_medium }}kr</p></b></label>
-            
-            <input type="radio" class="btn-check" name="size" id="{{ pizza.price_large }}" autocomplete="off" checked>
-            <label class="btn btn-outline-primary" for="{{ pizza.price_large }}"><h1><b>Large</b></h1><b><p style="color: black;">{{ pizza.price_large }}kr</p></b></label>
-        </div>
-        <div class="pizza-toppings-display">
-            <h2 class="pizza-toppings-header">Toppings:</h2>
-            <h4 class="pizza-toppings">{{ pizza.description }}</h4>
-        </div>
-        <a href="{% url 'menu-index' %}" class="add-to-cart" onclick="add_cart(
-            '{{ pizza.id }}',
-            '{{ pizza.name }}',
-            '{{ pizza.pizzaimage_set.first }}'
-        )"><h2><b>Add to Cart</b></h2>
-        </a>
+        <img class="pizza-image" src="/static/{{ pizza.pizzaimage_set.first }}" alt="">
     </div>
-    <img class="pizza-image" src="/static/{{ pizza.pizzaimage_set.first }}" alt="">
 </div>
 {% endblock %} 
