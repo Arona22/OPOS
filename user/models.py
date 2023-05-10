@@ -8,3 +8,6 @@ class Profile(models.Model):
     email = models.CharField(max_length=255, unique=True, default='')
     phone = models.CharField(max_length=255, blank=True)
     profile_image = models.CharField(max_length=9999, blank=True)
+
+    def __str__(self) -> str:
+        return self.name

@@ -8,8 +8,10 @@
         {% if person.id == 2 %}
             <div class="edit">
                 <div class="edit_img">
-                    <img src="{% static person.proimg %}" alt="" id="profile_pic">
+                    {% if user.is_authenticated %}
+                    <img src="{{ user.profile.profile_image }}" alt="" id="profile_pic">
                     <!-- <a href="" class="edit_butn_pro">Edit profile picture</a> -->
+                    {% endif %}
                     <form>
                         <div class="form-group">
                           <label for="exampleFormControlFile1">Edit profile picture</label>
