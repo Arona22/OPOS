@@ -70,3 +70,13 @@ $(document).ready(function() {
         })
     })
 })
+
+$(document).ready(function() {
+    $('#danger-outlined').on('change', function(e) {
+        e.preventDefault();
+                
+        $.ajax({
+            'url': '/menu?order_by_price'
+        })
+    })
+})

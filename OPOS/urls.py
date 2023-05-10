@@ -25,4 +25,5 @@ urlpatterns = [
     path('edit_profile/', include('edit_profile.urls')),
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
+    path('checkout/', include('checkout.urls')),
 ]
