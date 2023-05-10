@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'show_profile',
     'edit_profile',
     'user.apps.UserConfig',
+    'checkout',
 ]
 
 MIDDLEWARE = [
