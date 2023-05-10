@@ -5,59 +5,6 @@ from django.http import HttpResponse, JsonResponse
 
 
 
-def dumby_data():
-    pass
-    # pizzas = [
-    #     {
-    #         "id": 0,
-    #         "name": "Margarita",
-    #         "image": "img/marga_pizza.jpg",
-    #         "toppings": "tomato sauce and cheese",
-    #         "price": {
-    #             "small": 1199,
-    #             "medium": 2199,
-    #             "large": 3199
-    #         },
-    #         "type": ["popular"]
-    #     },
-    #     {
-    #         "id": 1,
-    #         "name": "OPOS Special",
-    #         "image": "img/opos_pizza.jpg",
-    #         "toppings": "tomato sauce, cheese, pepperoni, ham, salami, cream cheese, cheddar",
-    #         "price": {
-    #             "small": 1199,
-    #             "medium": 2199,
-    #             "large": 3199
-    #         },
-    #         "type": ["popular", "spicy", "new"]
-    #     },
-    #     {
-    #         "id": 2,
-    #         "name": "Pepperioni pizza",
-    #         "image": "img/pep_pizza.jpg",
-    #         "toppings": "tomato sauce, cheese, pepperoni",
-    #         "price": {
-    #             "small": 1199,
-    #             "medium": 2199,
-    #             "large": 3199
-    #         },
-    #         "type": ["spicy"]
-    #     },
-    #     {
-    #         "id": 3,
-    #         "name": "OPOS Special",
-    #         "image": "img/opos_pizza.jpg",
-    #         "toppings": "tomato sauce, cheese, pepperoni, ham, salami, cream cheese, cheddar",
-    #         "price": {
-    #             "small": 1199,
-    #             "medium": 2199,
-    #             "large": 3199
-    #         },
-    #         "type": ["popular", "spicy", "new"]
-    #     }
-    # ]
-
 # Create your views here.
 def index(request):
     if 'search_filter' in request.GET:
@@ -75,7 +22,8 @@ def index(request):
         } for x in Pizza.objects.filter(name__icontains=search_filter) ]
         return JsonResponse({ 'data': pizzas })
     
-    elif 'category_filter' in request.GET:
+
+    if 'category_filter' in request.GET:
         filter = request.GET[ 'category_filter' ]
         pizzas = [ {
             'id': x.id,
