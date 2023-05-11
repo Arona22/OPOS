@@ -20,9 +20,11 @@ class Customer_order(models.Model):
 
 class Payment(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    cardholder_name = models.CharField(max_length=255, default='')
     card_number = models.IntegerField(default=0)
+    card_month = models.IntegerField(default=0)
     card_year = models.IntegerField(default=0)
-    card_csv = models.IntegerField(default=0)
+    card_cvv = models.IntegerField(default=0)
     amount = models.IntegerField(default=0)
     pament_date = models.DateField(default=now())
 
