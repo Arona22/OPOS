@@ -13,19 +13,28 @@ const get_cart = () => {
 }
 
 const add_offer_cart = (name, img) => {
-
-    //2for1
-    let obj = {
-        "name": name,
-        "image": img
+    if (cart.length < 2) {
+        alert("Error: You don't have enough pizzas in cart");
     }
 
-    cart.push(obj);
-    if (cart.length > 2){
-        cart[cart.length - 2].price = 0
+    else {
+        //2for1
+        let obj = {
+            "name": name,
+            "image": img
+        }
+
+        cart = cart.filter(pizza => pizza.name !== obj.name)
+
+        let pizzaPairs = Math.floor(cart.length / 2)
+        for (var i = 0; i < pizzaPairs; i++) {
+            cart.push(obj);
+            cart[i].price = 0
+        }
+        
+        localStorage.setItem('myArray', JSON.stringify(cart));
+        console.log("offer in cart: " + name + img)
     }
-    localStorage.setItem('myArray', JSON.stringify(cart));
-    console.log("offer in cart: " + name + img)
 }
 
 
