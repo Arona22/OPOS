@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import date
+from django.utils.timezone import now
 
 # Create your models here.
 # from menu.models import Pizza, Category, Pizza_category, Rating, PizzaImage, Sales, Topping
@@ -28,7 +28,7 @@ class Pizza(models.Model):
     toppings = models.ManyToManyField(Topping, related_name='pizzas')
     ratings = models.ManyToManyField(Rating, related_name='pizzas')
     description = models.CharField(max_length=255)
-    created_at = models.DateField(default=date.today())
+    created_at = models.DateField(default=now())
     is_new = models.BooleanField(default=True)
     price_small = models.IntegerField(default=1199)
     price_medium = models.IntegerField(default=2199)
