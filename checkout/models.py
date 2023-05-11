@@ -10,6 +10,7 @@ class Order(models.Model):
     product = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     product_name = models.CharField(max_length=255)
     quantity = models.IntegerField(default=1)
+    price = models.IntegerField(default=0)
     order_date = models.DateField(default=now())
 
 class Customer_order(models.Model):
