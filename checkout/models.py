@@ -16,3 +16,18 @@ class Order(models.Model):
 class Customer_order(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
+
+
+class Payment(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    amount = models.IntegerField(default=0)
+    pament_date = models.DateField(default=now())
+
+class ContactInfo(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    country = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+    zip_code = models.IntegerField(blank=True)
