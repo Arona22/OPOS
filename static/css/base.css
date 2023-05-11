@@ -327,7 +327,17 @@ body {
 
 
 
+.information-container {
+    background-color: #6eff90;
+    width: 30%;
+    text-align: center;
+    margin: auto;
+}
 
+.informaion-ancor {
+    text-decoration: none;
+    color: black;
+}
 
 
 .edit-profile-btn{

@@ -88,7 +88,11 @@
 
     <div class="footer">
         <p id="footer_location">📍 Laumuglóð 12 <br> 📍 Raulfuslóð 2</p>
-        <img src="{% static 'img/logo-png.png' %}" alt="" id="logo_img_footer">
+        <div class="information-container">
+          <a class="informaion-ancor" href="{% url 'about-index' %}" >About us</a>
+          <a class="informaion-ancor" href="{% url 'terms-index' %}" style="margin-left: 20px;">Terms</a>
+          <a class="informaion-ancor" href="{% url 'policy-index' %}" style="margin-left: 20px;">Privacy policy</a>
+        </div>
         <p id="footer_info">☎️ 789-8932 <br> 📧 opos@opos.com</p>
     </div>
 

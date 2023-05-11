@@ -10,3 +10,12 @@ def cart(request):
 
 def thank(request):
     return render(request, 'home/thank.html')
+
+def about(request):
+    return render(request, 'home/about.html')
+
+def terms(request):
+    return render(request, 'home/terms.html')
+
+def policy(request):
+    return render(request, 'home/policy.html')

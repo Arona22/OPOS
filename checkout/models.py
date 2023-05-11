@@ -24,7 +24,7 @@ class Payment(models.Model):
     card_number = models.IntegerField(default=0)
     card_month = models.IntegerField(default=0)
     card_year = models.IntegerField(default=0)
-    card_cvv = models.IntegerField(default=0)
+    card_cvc = models.IntegerField(default=0)
     amount = models.IntegerField(default=0)
     pament_date = models.DateField(default=now())
 
