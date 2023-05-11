@@ -13,27 +13,46 @@ const get_cart = () => {
 }
 
 const add_offer_cart = (name, img) => {
-    if (cart.length < 2) {
-        alert("Error: You don't have enough pizzas in cart");
+    //2for1
+    let obj = {
+        "name": name,
+        "image": img,
+        "price": 0
     }
 
-    else {
-        //2for1
-        let obj = {
-            "name": name,
-            "image": img
+    if (obj.name === "2for1") {
+        if (cart.length < 2) {
+            alert("Error: You don't have enough pizzas in cart");
         }
-
-        cart = cart.filter(pizza => pizza.name !== obj.name)
-
-        let pizzaPairs = Math.floor(cart.length / 2)
-        for (var i = 0; i < pizzaPairs; i++) {
-            cart.push(obj);
-            cart[i].price = 0
+    
+        else {
+            cart = cart.filter(pizza => pizza.name !== obj.name)
+    
+            let pizzaPairs = Math.floor(cart.length / 2)
+            for (var i = 0; i < pizzaPairs; i++) {
+                let highestPrice = 0
+                let HPPizzaIndex = i
+                cart.push(obj);
+                for (var i = 0; i < cart.length; i++) {
+                    if (cart[i].price > highestPrice) {
+                        highestPrice = cart[i].price
+                        HPPizzaIndex = i
+                    }
+                }
+                cart[HPPizzaIndex].price = 0
+            }
+            
+            localStorage.setItem('myArray', JSON.stringify(cart));
+            console.log("offer in cart: " + name + img)
         }
-        
-        localStorage.setItem('myArray', JSON.stringify(cart));
-        console.log("offer in cart: " + name + img)
+    }
+
+    else if (obj.name === "10%") {
+        code = "tviund"
+        const discountCode = prompt("Enter the discount Code (tviund)")
+        if (discountCode !== code) {
+            alert("Invalid discount code")
+        }
     }
 }
 
@@ -84,7 +103,7 @@ const displayCart = () => {
     // all pizza boxes
     for (let i = 0; i < cart.length; i++) {
         // PIZZAS
-        if (cart[i].name == "2for1" || cart[i].name == "10%"){
+        if (cart[i].name == "2for1" || cart[i].name == "10%" || cart[i].name == "family offer"){
             //display offer in cart
             let pizzaItem = document.createElement("li");
 
