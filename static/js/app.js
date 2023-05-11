@@ -54,6 +54,12 @@ const add_offer_cart = (name, img) => {
             alert("Invalid discount code")
         }
     }
+
+    else {
+        if (cart.lengt === 3) {
+            null
+        }
+    }
 }
 
 
