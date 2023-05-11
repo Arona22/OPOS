@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
+<img src="{% static 'img/pizza-background-profile-3.jpg' %}" alt="" style="position: absolute; z-index: -10; width: 100%; opacity: 0.1;">
+
+
 <div class="container">
     <h1 class="pizza-header"><b>{{ pizza.name }}</b></h1>
     <div class="pizza-page">

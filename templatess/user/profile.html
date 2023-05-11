@@ -1,28 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
+    <img src="{% static 'img/profile-background-img.jpg' %}" alt="" style="position: absolute; z-index: -10; width: 100%;">
+
 <div class="container"> 
     <h1 id="edit_head_text">Profile</h1>
     
     <div class="edit">
         <div class="edit_img">
+            {% if user.profile.profile_image %}
             <img src="{{ user.profile.profile_image }}" alt="" id="profile_pic">
+            {% else %}
+            <img src="{% static 'img/profile-placeholder-1.jpeg' %}" alt="" id="profile_pic">
+            {% endif %}
         </div>
 
         <div class="edit_text">
             <p class="edit_head"><b>Name</b></p>
+            {% if user.profile.name %}
             <p>
                 {{ user.profile.name }}
             </p>
+            {% else %}
+            <p>_______________</p>
+
+            {% endif %}
+
             <p class="edit_head"><b>Mail</b></p>
+            {% if user.profile.email %}
             <p>
                 {{ user.profile.email }}
             </p>
+            {% else %}
+            <p>_______________</p>
+
+            {% endif %}
+
             <p class="edit_head"><b>phone</b></p>
+            {% if user.profile.phone %}
             <p>
                 {{ user.profile.phone }}
             </p>
+            {% else %}
+            <p>_______________</p>
+
+            {% endif %}
         </div>
     </div>
+    <button class="edit-profile-btn">
+        <a href="{% url 'edit_profile' %}" style="color: black; text-decoration: none; font-family: 'Roboto', sans-serif;">Edit profile</a>
+    </button>
 </div>
 {% endblock %}
