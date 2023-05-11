@@ -12,4 +12,6 @@ class Order(models.Model):
     quantity = models.IntegerField(default=1)
     order_date = models.DateField(default=now())
 
-# Order model er nuna með product_name, quantity, order_date, customer_id og product_id
+class Customer_order(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
