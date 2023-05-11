@@ -119,7 +119,7 @@ const displayCart = () => {
             pizzaex.className = "pizzaex"
             pizzaex.onclick = () => deletepizza(cart[i].id);
             
-            pizzaquant.id = "quant"
+            pizzaquant.id = cart[i].name + cart[i].price
             pizzaquant.value = cart[i].quantity
             pizzaquant.type = "number"
             pizzaquant.style = "width: 50px; margin-right: 100px; margin-left: 5px; margin-top: 5px;"
@@ -137,6 +137,15 @@ const displayCart = () => {
             cart_list.appendChild(pizzaItem);
 
             total += cart[i].price * cart[i].quantity
+
+            //functionality for quantity
+            const input = document.getElementById(cart[i].name + cart[i].price);
+            input.addEventListener("change", updateValue);
+            function updateValue(e) {
+            cart[i].quantity = Number(e.target.value);
+            localStorage.setItem('myArray', JSON.stringify(cart));
+            }
+
         }
     }
 
