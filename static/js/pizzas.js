@@ -24,6 +24,11 @@ $(document).ready(function() {
                                             <div class="card-body">
                                                 <h5 class="pizza-title">${pizza.name}</h5>
                                                 <p class="pizza-description">${pizza.description}</p>
+                                                <div class="pizza-sizes">
+                                                    <p>small:${pizza.price_small}kr</p>
+                                                    <p>medium:${pizza.price_medium}kr</p>
+                                                    <p>large:${pizza.price_large}kr</p>
+                                                </div>
                                             </div>
                                         </a>
                                     </div>`
@@ -64,7 +69,12 @@ $(document).ready(function() {
                                         <div class="card-body">
                                             <h5 class="pizza-title">${pizza.name}</h5>
                                             <p class="pizza-description">${pizza.description}</p>
-                                        </div>
+                                            <div class="pizza-sizes">
+                                                <p>small:${pizza.price_small}kr</p>
+                                                <p>medium:${pizza.price_medium}kr</p>
+                                                <p>large:${pizza.price_large}kr</p>
+                                            </div>
+                                    </div>
                                     </a>
                                 </div>`
                     })
@@ -82,8 +92,6 @@ $(document).ready(function() {
     $('#success-outlined').on('change', function(e) {
         e.preventDefault();
         window.location.href = '/menu?order_by_name';
-        var myCheckbox = document.getElementById("success-outlined");
-        myCheckbox.checked = true;
     })
 })
 
@@ -91,7 +99,5 @@ $(document).ready(function() {
     $('#danger-outlined').on('change', function(e) {
         e.preventDefault();
         window.location.href = '/menu?order_by_price';
-        var myCheckbox = document.getElementById("danger-outlined");
-        myCheckbox.checked = true;
     })
 })

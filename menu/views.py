@@ -45,9 +45,11 @@ def index(request):
         return JsonResponse({ 'data': returned_pizzas })
     
     if 'order_by_price' in request.GET:
-        return render(request, 'menu/index.html', context={ 'pizzas': Pizza.objects.all().order_by('id') })
+        return render(request, 'menu/index.html', context={ 'pizzas': Pizza.objects.all().order_by('price_large') })
+    if 'order_by_name' in request.GET:
+        return render(request, 'menu/index.html', context={ 'pizzas': Pizza.objects.all().order_by('name') })
 
-    return render(request, 'menu/index.html', context={ 'pizzas': Pizza.objects.all().order_by('name') })
+    return render(request, 'menu/index.html', context={ 'pizzas': Pizza.objects.all() })
 
 def get_pizza_by_id(request, id):
     return render(request, 'menu/order_pizza.html', {
