@@ -79,11 +79,19 @@ $(document).ready(function() {
 })
 
 $(document).ready(function() {
+    $('#success-outlined').on('change', function(e) {
+        e.preventDefault();
+        window.location.href = '/menu?order_by_name';
+        var myCheckbox = document.getElementById("success-outlined");
+        myCheckbox.checked = true;
+    })
+})
+
+$(document).ready(function() {
     $('#danger-outlined').on('change', function(e) {
         e.preventDefault();
-                
-        $.ajax({
-            'url': '/menu?order_by_price'
-        })
+        window.location.href = '/menu?order_by_price';
+        var myCheckbox = document.getElementById("danger-outlined");
+        myCheckbox.checked = true;
     })
 })
