@@ -22,47 +22,92 @@ const add_offer_cart = (name, img) => {
     }
 
     if (obj.name === "2for1") {
-        if (cart.length < 2) {
-            alert("Error: You don't have enough pizzas in cart");
+        let twoForOneOfferInCart = cart.some(pizza => pizza.name === "2for1")
+        let otherOfferInCart = cart.some(pizza => pizza.name === "Family offer" || pizza.name === "10% off")
+        if (twoForOneOfferInCart) {
+            alert("You have already added an 2for1 to cart!")
         }
-    
+        else if (otherOfferInCart) {
+            alert("This offer can not be used with other offers!")
+        }
         else {
-            cart = cart.filter(pizza => pizza.name !== obj.name)
-    
-            let pizzaPairs = Math.floor(cart.length / 2)
-            for (var i = 0; i < pizzaPairs; i++) {
-                let highestPrice = 0
-                let HPPizzaIndex = i
-                cart.push(obj);
-                for (var i = 0; i < cart.length; i++) {
-                    if (cart[i].price > highestPrice) {
-                        highestPrice = cart[i].price
-                        HPPizzaIndex = i
-                    }
-                }
-                cart[HPPizzaIndex].price = 0
+            if (cart.length < 2) {
+                alert("You don't have enough pizzas in cart");
             }
-            
-            localStorage.setItem('myArray', JSON.stringify(cart));
-            console.log("offer in cart: " + name + img)
+        
+            else {
+                let pizzaPairs = Math.floor(cart.length / 2)
+                for (var i = 0; i < pizzaPairs; i++) {
+                    let highestPrice = 0
+                    let HPPizzaIndex = i
+                    cart.push(obj);
+                    for (var j = 0; j < cart.length; j++) {
+                        if (cart[j].price > highestPrice) {
+                            highestPrice = cart[j].price
+                            HPPizzaIndex = j
+                        }
+                    }
+                    cart[HPPizzaIndex].price = 0
+    
+                    localStorage.setItem('myArray', JSON.stringify(cart));
+                    console.log("offer in cart: " + name + img)
+                }
+            }
         }
     }
 
-    else if (obj.name === "10%") {
-        code = "tviund"
-        const discountCode = prompt("Enter the discount Code (tviund)")
-        if (discountCode !== code) {
-            alert("Invalid discount code")
+    else if (obj.name === "10% off") {
+        let tenOffOfferInCart = cart.some(pizza => pizza.name === "10% off")
+        let otherOfferInCart = cart.some(pizza => pizza.name === "2for1" || pizza.name === "Family offer")
+        if (tenOffOfferInCart) {
+            alert("You have already added an discount to cart!")
+        }
+        else if (otherOfferInCart) {
+            alert("This offer can not be used with other offers!")
+        } 
+
+
+        else {
+            code = "tviund"
+            let discountCode = prompt("Enter the discount Code (tviund)")
+            if (discountCode !== code) {
+                alert("Invalid discount code")
+            }
+            else {
+                cart.forEach(pizza => {
+                    pizza.price = Math.floor(pizza.price * 0.9)
+                })
+
+                cart.push(obj);
+                localStorage.setItem('myArray', JSON.stringify(cart));
+                console.log("offer in cart: " + name + img)
+            }
         }
     }
+
 
     else {
         let familyOfferInCart = cart.some(pizza => pizza.name === "family offer")
+        let otherOfferInCart = cart.some(pizza => pizza.name === "2for1" || pizza.name === "10% off")
         if (familyOfferInCart) {
             alert("You have already added an family offer to cart!")
         }
-        else if (cart.filter(pizza => pizza.name !== "2fyrir1" || pizza.name !== "10%").lengt === 5) {
-            
+        else if (otherOfferInCart) {
+            alert("This offer can not be used with other offers!")
+        }
+        else if (cart.length !== 5) {
+            alert("You don't have enough pizzas in cart")
+        }
+
+        else {
+            obj.price = 5000
+            cart.forEach (pizza => {
+                pizza.price = 0
+            })
+
+            cart.push(obj);
+            localStorage.setItem('myArray', JSON.stringify(cart));
+            console.log("offer in cart: " + name + img)
         }
     }
 }
@@ -114,7 +159,7 @@ const displayCart = () => {
     // all pizza boxes
     for (let i = 0; i < cart.length; i++) {
         // PIZZAS
-        if (cart[i].name == "2for1" || cart[i].name == "10%" || cart[i].name == "family offer"){
+        if (cart[i].name == "2for1" || cart[i].name == "10% off" || cart[i].name == "family offer"){
             //display offer in cart
             let pizzaItem = document.createElement("li");
 
