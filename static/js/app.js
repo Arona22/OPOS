@@ -357,3 +357,15 @@ const checkout_cart = () => {
 }
 
 
+
+const post_checkout_cart = () => {
+    $.post("{% url 'checkout-review' %}", data, 
+    function(response){
+        if (response.status == 'ok') {
+            // It's all good
+            console.log(response)
+        } else {
+            // Do something with errors
+        }
+    })
+}
