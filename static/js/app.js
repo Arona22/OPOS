@@ -59,11 +59,10 @@ const add_offer_cart = (name, img) => {
     else {
         let familyOfferInCart = cart.some(pizza => pizza.name === "family offer")
         if (familyOfferInCart) {
-            alert("You have ")
+            alert("You have already added an family offer to cart!")
         }
-
-        if (cart.filter(pizza => pizza.name !== "2fyrir1" || pizza.name !== "10%").lengt === 5) {
-            null
+        else if (cart.filter(pizza => pizza.name !== "2fyrir1" || pizza.name !== "10%").lengt === 5) {
+            
         }
     }
 }
@@ -235,7 +234,7 @@ const checkout_cart = () => {
 
         //make box
         let checkItem = document.createElement("div");
-        checkItem.style = "border-bottom: 1px solid; padding-bottom: 10px; padding-left: 10px;"
+        checkItem.style = "border-bottom: 1px solid; padding-bottom: 10px; padding-left: 10px; height: 150px;"
         checkItem.className = "form-group"
 
 
