@@ -347,7 +347,6 @@ body {
 
 
 .information-container {
-    background-color: #6eff90;
     width: 30%;
     text-align: center;
     margin: auto;
@@ -356,6 +355,10 @@ body {
 .informaion-ancor {
     text-decoration: none;
     color: black;
+}
+
+.informaion-ancor:hover {
+    text-decoration: underline;
 }
 
 .about-information-wrapper {
