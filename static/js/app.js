@@ -17,7 +17,8 @@ const add_offer_cart = (name, img) => {
     let obj = {
         "name": name,
         "image": img,
-        "price": 0
+        "price": 0,
+        "quantity": 1
     }
 
     if (obj.name === "2for1") {
@@ -56,7 +57,12 @@ const add_offer_cart = (name, img) => {
     }
 
     else {
-        if (cart.lengt === 3) {
+        let familyOfferInCart = cart.some(pizza => pizza.name === "family offer")
+        if (familyOfferInCart) {
+            alert("You have ")
+        }
+
+        if (cart.filter(pizza => pizza.name !== "2fyrir1" || pizza.name !== "10%").lengt === 5) {
             null
         }
     }
