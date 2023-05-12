@@ -7,8 +7,9 @@ countries = ['Afghanistan', 'Aland Islands', 'Albania', 'Algeria', 'American Sam
 class Contact_info_form(ModelForm):
     class Meta:
         model = ContactInfo
-        exclude = ['id', 'customer']
+        exclude = ['id']
         widgets = {
+            'customer': widgets.TextInput(attrs={'class': 'form-control'}),
             'country': widgets.Select(attrs={'class': 'form-control'}),
             'first_name': widgets.TextInput(attrs={'class': 'form-control'}),
             'last_name': widgets.TextInput(attrs={'class': 'form-control'}),
@@ -20,8 +21,9 @@ class Contact_info_form(ModelForm):
 class payment_form(ModelForm):
     class Meta:
         model = Payment
-        exclude = ['id', 'pament_date', 'amount', 'customer']
+        exclude = ['id', 'pament_date', 'amount']
         widgets = {
+            'customer': widgets.TextInput(attrs={'class': 'form-control'}),
             'cardholder_name': widgets.TextInput(attrs={'class': 'form-control'}),
             'card_number': widgets.TextInput(attrs={'class': 'form-control'}),
             'card_month': widgets.TextInput(attrs={'class': 'form-control'}),

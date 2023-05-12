@@ -398,13 +398,22 @@ const checkout_cart = () => {
 
 
 const post_checkout_cart = () => {
-    $.post("{% url 'checkout-review' %}", data, 
-    function(response){
-        if (response.status == 'ok') {
-            // It's all good
-            console.log(response)
-        } else {
-            // Do something with errors
+    for (let i = 0; i < cart.length; i++) {
+        let dataa = {
+            'product': parseInt(cart[i].id),
+            'product_name': cart[i].name,
+            'quantity': cart[i].quantity,
+            'price': cart[i].price,
         }
-    })
-}
+        console.log(dataa)
+
+        fetch('review', {
+        method: 'POST',
+        body: JSON.stringify(dataa),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        })
+      }
+        
+    }
