@@ -23,7 +23,7 @@ const add_offer_cart = (name, img) => {
 
     if (obj.name === "2for1") {
         let twoForOneOfferInCart = cart.some(pizza => pizza.name === "2for1")
-        let otherOfferInCart = cart.some(pizza => pizza.name === "Family offer" || pizza.name === "10% off")
+        let otherOfferInCart = cart.some(pizza => pizza.name === "Family meal" || pizza.name === "10% off")
         let totalQuantity = cart.reduce((sum, pizza) => {
             return sum + pizza.quantity;
         }, 0);
@@ -89,7 +89,7 @@ const add_offer_cart = (name, img) => {
 
     else if (obj.name === "10% off") {
         let tenOffOfferInCart = cart.some(pizza => pizza.name === "10% off")
-        let otherOfferInCart = cart.some(pizza => pizza.name === "2for1" || pizza.name === "Family offer")
+        let otherOfferInCart = cart.some(pizza => pizza.name === "2for1" || pizza.name === "Family meal")
         if (tenOffOfferInCart) {
             alert("You have already added an discount to cart!")
         }
@@ -117,14 +117,14 @@ const add_offer_cart = (name, img) => {
 
 
     else {
-        let familyOfferInCart = cart.some(pizza => pizza.name === "family offer")
+        let familyOfferInCart = cart.some(pizza => pizza.name === "Family meal")
         let otherOfferInCart = cart.some(pizza => pizza.name === "2for1" || pizza.name === "10% off")
         let totalQuantity = cart.reduce((sum, pizza) => {
             return sum + pizza.quantity;
         }, 0);
 
         if (familyOfferInCart) {
-            alert("You have already added an family offer to cart!")
+            alert("You have already added an Family meal to cart!")
         }
         else if (otherOfferInCart) {
             alert("This offer can not be used with other offers!")
@@ -193,7 +193,7 @@ const displayCart = () => {
     // all pizza boxes
     for (let i = 0; i < cart.length; i++) {
         // PIZZAS
-        if (cart[i].name == "2for1" || cart[i].name == "10% off" || cart[i].name == "family offer"){
+        if (cart[i].name == "2for1" || cart[i].name == "10% off" || cart[i].name == "Family meal"){
             //display offer in cart
             let pizzaItem = document.createElement("li");
 
@@ -284,8 +284,8 @@ const displayCart = () => {
 
 
 const deletepizza = (id, cart) => {
-    if (cart.some(pizza => pizza.name === "2for1" || pizza.name === "Family offer" || pizza.name === "10% off")) {
-        alert("Can not delete a single item from cart when it has an offer")
+    if (cart.some(pizza => pizza.name === "2for1" || pizza.name === "Family meal" || pizza.name === "10% off")) {
+        alert("Can not delete a single item from cart when it has an offer! You must clear the cart!")
     }
     else {
         //delete one pizza in cart

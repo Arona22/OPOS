@@ -24,7 +24,7 @@ $(document).ready(function() {
                                             <div class="card-body">
                                                 <h5 class="pizza-title">${pizza.name}</h5>
                                                 <p class="pizza-description">${pizza.description}</p>
-                                                <div class="pizza-sizes">
+                                                <div class="price-container">
                                                     <p>small:${pizza.price_small}kr</p>
                                                     <p>medium:${pizza.price_medium}kr</p>
                                                     <p>large:${pizza.price_large}kr</p>
@@ -69,7 +69,7 @@ $(document).ready(function() {
                                         <div class="card-body">
                                             <h5 class="pizza-title">${pizza.name}</h5>
                                             <p class="pizza-description">${pizza.description}</p>
-                                            <div class="pizza-sizes">
+                                            <div class="price-container">
                                                 <p>small:${pizza.price_small}kr</p>
                                                 <p>medium:${pizza.price_medium}kr</p>
                                                 <p>large:${pizza.price_large}kr</p>
