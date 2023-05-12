@@ -339,6 +339,26 @@ body {
     color: black;
 }
 
+.about-information-wrapper {
+    padding: 3rem;
+    padding-left: 4rem;
+    width: 75%;
+    height: 75%;
+    display: grid; 
+    position: relative;
+}
+
+.informaion-text-wrapper { 
+    width: 70%;
+}
+
+
+.about-informaion-text {
+    font-family: 'Roboto', sans-serif;
+    line-height: 30px;
+    color: white;
+}
+
 
 .edit-profile-btn{
     margin-left: 56%;
