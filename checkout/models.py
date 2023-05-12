@@ -9,6 +9,9 @@ from menu.models import Pizza
 class Countries(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self) -> str:
+        return self.name
+
 class Order(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Pizza, on_delete=models.CASCADE)
