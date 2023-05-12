@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container">
+<div class="container" style="margin-top: 40px; margin-left: 350px;" >
     <form class="form form-horizontal" method="post">
         {% csrf_token %}
         {{ form.as_p }}
