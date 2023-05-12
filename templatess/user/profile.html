@@ -48,9 +48,10 @@
         </div>
     </div>
     {% if user.is_authenticated %}
-    <button class="edit-profile-btn">
-        <a href="{% url 'edit_profile' %}" style="color: black; text-decoration: none; font-family: 'Roboto', sans-serif;">Edit profile</a>
-    </button>
+    
+        <a href="{% url 'edit_profile' %}">
+            <button class="edit-profile-btn">Edit profile</button>
+        </a>
     {% endif %}
 </div>
 {% endblock %}

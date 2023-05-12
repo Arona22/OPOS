@@ -389,6 +389,7 @@ body {
     background-color: rgba(135, 189, 255, 0.878);
     border-style: solid;
     border-width: 1px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .edit-profile-btn:hover {
