@@ -5,7 +5,7 @@ Orri Egilsson (holmiegils@ru.is) and Kristófer Orri Svavarsson
 The project is made for educational purposes only and is not inteded to be 
 seen or used as a legitemate product.
 
-Furtermore, the project was made by three junior web web developers and thus 
+Furtermore, the project was made by three junior web developers and thus 
 the website might be subjected to bugs and/or not work as inteded. 
 
 The project was made by the helping had of several web development services
