@@ -11,9 +11,7 @@ class Topping(models.Model):
         return self.name
 
 
-class Rating(models.Model):
-    name = models.CharField(max_length=255)
-    rating = models.IntegerField()
+
 
 
 class Category(models.Model):
@@ -26,7 +24,6 @@ class Pizza(models.Model):
     name = models.CharField(max_length=255, unique=True)
     categories = models.ManyToManyField(Category, related_name='pizzas')
     toppings = models.ManyToManyField(Topping, related_name='pizzas')
-    ratings = models.ManyToManyField(Rating, related_name='pizzas')
     description = models.CharField(max_length=255)
     created_at = models.DateField(default=now())
     is_new = models.BooleanField(default=True)
@@ -45,10 +42,6 @@ class Pizza_category(models.Model):
 class Pizza_topping(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     topping = models.ForeignKey(Topping, on_delete=models.CASCADE)
-
-class Pizza_rating(models.Model):
-    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
-    rating = models.ForeignKey(Rating, on_delete=models.CASCADE)
 
 
 class PizzaImage(models.Model):
