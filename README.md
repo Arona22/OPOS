@@ -9,8 +9,8 @@ Furtermore, the project was made by three junior web developers and thus
 the website might be subjected to bugs and/or not work as inteded. 
 
 The project was made by the helping had of several web development services
-loke django and bootstrap, some of which are required for the use or 
-manipulation of the website (see requirement.txt for further information).
+like django and bootstrap, some of which are required for the installment and
+use of the website (see requirement.txt for further information).
 
 To contact the makers of this website, please use any of the emails listed 
 above.
