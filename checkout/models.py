@@ -5,6 +5,10 @@ from menu.models import Pizza
 
 
 # Create your models here.
+
+class Countries(models.Model):
+    name = models.CharField(max_length=255)
+
 class Order(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Pizza, on_delete=models.CASCADE)
@@ -30,7 +34,7 @@ class Payment(models.Model):
 
 class ContactInfo(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
-    country = models.CharField(max_length=255)
+    country = models.ForeignKey(Countries, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
