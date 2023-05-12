@@ -23,7 +23,11 @@ const add_offer_cart = (name, img) => {
 
     if (obj.name === "2for1") {
         let twoForOneOfferInCart = cart.some(pizza => pizza.name === "2for1")
-        let otherOfferInCart = cart.some(pizza => pizza.name === "Family offer" || pizza.name === "10% off")
+        let otherOfferInCart = cart.some(pizza => pizza.name === "Family meal" || pizza.name === "10% off")
+        let totalQuantity = cart.reduce((sum, pizza) => {
+            return sum + pizza.quantity;
+        }, 0);
+        
         if (twoForOneOfferInCart) {
             alert("You have already added an 2for1 to cart!")
         }
@@ -31,41 +35,67 @@ const add_offer_cart = (name, img) => {
             alert("This offer can not be used with other offers!")
         }
         else {
-            if (cart.length < 2) {
-                alert("You don't have enough pizzas in cart");
+            if (totalQuantity !== 2) {
+                alert("You don't have two pizzas in cart!");
             }
         
             else {
-                let pizzaPairs = Math.floor(cart.length / 2)
-                for (var i = 0; i < pizzaPairs; i++) {
-                    let highestPrice = 0
-                    let HPPizzaIndex = i
-                    cart.push(obj);
-                    for (var j = 0; j < cart.length; j++) {
-                        if (cart[j].price > highestPrice) {
-                            highestPrice = cart[j].price
-                            HPPizzaIndex = j
-                        }
-                    }
-                    cart[HPPizzaIndex].price = 0
-    
-                    localStorage.setItem('myArray', JSON.stringify(cart));
-                    console.log("offer in cart: " + name + img)
+                // let pizzaPairs = Math.floor(totalQuantity / 2)
+                // pizzasInCart = cart.length
+                // for (var i = 0; i < pizzaPairs; i++) {
+                //     let highestPrice = 0
+                //     let HPPizzaIndex = i
+                //     for (var j = 0; j < pizzasInCart; j++) {
+                //         if (cart[j].price > highestPrice) {
+                //             highestPrice = cart[j].price
+                //             HPPizzaIndex = j
+                //         }
+                //     }
+                //     let freePizza = cart[HPPizzaIndex]
+                //     if (freePizza.quantity > 1) {
+                //         freePizza.price = 0
+                //         cart.push(freePizza)                   
+                //         cart[HPPizzaIndex].quantity -= 1
+                //     }    
+                //     else {
+                //         cart[HPPizzaIndex].price = 0
+                //     }
+                // }
+                // cart.push(obj);
+                // localStorage.setItem('myArray', JSON.stringify(cart));
+                // console.log("offer in cart: " + name + img)
+
+                if (cart[0].quantity === 2) {
+                    let freePizza = Object.assign({}, cart[0]);
+                    freePizza.price = 0
+                    freePizza.quantity = 1
+                    cart.push(freePizza)
+                    cart[0].quantity = 1
                 }
+                else {
+                    let highestPriceIndex = 0
+                    if (cart[0].price < cart[1].price) {
+                        highestPriceIndex = 1
+                    }
+                    cart[highestPriceIndex].price = 0
+                }
+
+                cart.push(obj);
+                localStorage.setItem('myArray', JSON.stringify(cart));
+                console.log("offer in cart: " + name + img)
             }
         }
     }
 
     else if (obj.name === "10% off") {
         let tenOffOfferInCart = cart.some(pizza => pizza.name === "10% off")
-        let otherOfferInCart = cart.some(pizza => pizza.name === "2for1" || pizza.name === "Family offer")
+        let otherOfferInCart = cart.some(pizza => pizza.name === "2for1" || pizza.name === "Family meal")
         if (tenOffOfferInCart) {
             alert("You have already added an discount to cart!")
         }
         else if (otherOfferInCart) {
             alert("This offer can not be used with other offers!")
         } 
-
 
         else {
             code = "tviund"
@@ -87,15 +117,19 @@ const add_offer_cart = (name, img) => {
 
 
     else {
-        let familyOfferInCart = cart.some(pizza => pizza.name === "family offer")
+        let familyOfferInCart = cart.some(pizza => pizza.name === "Family meal")
         let otherOfferInCart = cart.some(pizza => pizza.name === "2for1" || pizza.name === "10% off")
+        let totalQuantity = cart.reduce((sum, pizza) => {
+            return sum + pizza.quantity;
+        }, 0);
+
         if (familyOfferInCart) {
-            alert("You have already added an family offer to cart!")
+            alert("You have already added an Family meal to cart!")
         }
         else if (otherOfferInCart) {
             alert("This offer can not be used with other offers!")
         }
-        else if (cart.length !== 5) {
+        else if (totalQuantity !== 5) {
             alert("You don't have enough pizzas in cart")
         }
 
@@ -159,7 +193,7 @@ const displayCart = () => {
     // all pizza boxes
     for (let i = 0; i < cart.length; i++) {
         // PIZZAS
-        if (cart[i].name == "2for1" || cart[i].name == "10% off" || cart[i].name == "family offer"){
+        if (cart[i].name == "2for1" || cart[i].name == "10% off" || cart[i].name == "Family meal"){
             //display offer in cart
             let pizzaItem = document.createElement("li");
 
@@ -175,7 +209,7 @@ const displayCart = () => {
 
             
             pizzaex.className = "pizzaex"
-            pizzaex.onclick = () => deletepizza(cart[i].id);
+            pizzaex.onclick = () => deletepizza(cart[i].id, cart);
 
             pizzaItem.appendChild(pizzaName);
             pizzaItem.appendChild(pizzaImg);
@@ -201,7 +235,7 @@ const displayCart = () => {
 
             
             pizzaex.className = "pizzaex"
-            pizzaex.onclick = () => deletepizza(cart[i].id);
+            pizzaex.onclick = () => deletepizza(cart[i].id, cart);
             
             pizzaquant.id = cart[i].name + cart[i].price
             pizzaquant.value = cart[i].quantity
@@ -249,15 +283,20 @@ const displayCart = () => {
 }
 
 
-const deletepizza = (id) => {
-    //delete one pizza in cart
-    const index = cart.findIndex((obj) => obj.id === id);
-    if (index > -1) {
-        cart.splice(index, 1);
+const deletepizza = (id, cart) => {
+    if (cart.some(pizza => pizza.name === "2for1" || pizza.name === "Family meal" || pizza.name === "10% off")) {
+        alert("Can not delete a single item from cart when it has an offer! You must clear the cart!")
     }
-    localStorage.setItem('myArray', JSON.stringify(cart));
-    displayCart()
-    console.log("delete one pizza")
+    else {
+        //delete one pizza in cart
+        const index = cart.findIndex((obj) => obj.id === id);
+        if (index > -1) {
+            cart.splice(index, 1);
+        }
+        localStorage.setItem('myArray', JSON.stringify(cart));
+        displayCart()
+        console.log("delete one pizza")
+    }
 }
 
 const deletecart = () => {
