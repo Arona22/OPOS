@@ -56,16 +56,4 @@ def get_pizza_by_id(request, id):
         'pizza': get_object_or_404(Pizza, pk=id)
     })
 
-def create_pizza(request):
-    if request.method == 'POST':
-        form = PizzaCreateForm(data = request.POST)
-        if form.is_valid():
-            pizza = form.save()
-            pizza_image = PizzaImage(image=request.POST['image'], pizza = pizza)
-            pizza_image.save()
-            return redirect('menu-index')
-    else:
-        form = PizzaCreateForm()
-    return render(request, 'menu/create_pizza.html', {
-        'form': form
-    })
+
